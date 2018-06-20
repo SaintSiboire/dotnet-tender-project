@@ -12,7 +12,7 @@ namespace Drette.Tender.Shared.Data
 {
     public class Context : IdentityDbContext<User>
     {
-        public DbSet<Item> Activities { get; set; }
+        public DbSet<Item> Items { get; set; }
         public DbSet<Entry> Entries { get; set; }
 
         public Context()
@@ -30,15 +30,15 @@ namespace Drette.Tender.Shared.Data
 
             // Using the fluent API to configure entity properties...
 
-            // Configure the string length for the Activity.Name property.
+            // Configure the string length for the Item.Name property.
             modelBuilder.Entity<Item>()
                 .Property(a => a.Name)
                 .HasMaxLength(100);
 
             // Configure the precision and scale for the Entry.Duration property.
             modelBuilder.Entity<Entry>()
-                .Property(e => e.Duration)
-                .HasPrecision(5, 1);
+                .Property(e => e.Price)
+                .HasPrecision(5, 2);
         }
     }
 }

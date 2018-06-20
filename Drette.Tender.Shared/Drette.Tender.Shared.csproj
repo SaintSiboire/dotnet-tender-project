@@ -77,7 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ActivitiesRepository.cs" />
+    <Compile Include="Data\ItemsRepository.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />

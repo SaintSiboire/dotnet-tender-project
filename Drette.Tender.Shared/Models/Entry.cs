@@ -19,22 +19,15 @@ namespace Drette.Tender.Shared.Models
         /// <param name="year">The year (1 through 9999) for the entry date.</param>
         /// <param name="month">The month (1 through 12) for the entry month.</param>
         /// <param name="day">The day (1 through the number of days for the month) for the entry day.</param>
-        /// <param name="activity">The activity for the entry.</param>
-        /// <param name="duration">The duration for the entry (in minutes).</param>
-        /// <param name="intensity">The intensity for the entry.</param>
-        /// <param name="exclude">Whether or not the entry should be excluded when calculating the total fitness activity.</param>
-        /// <param name="notes">The notes for the entry.</param>
-        public Entry(User user, int year, int month, int day, Item activity, 
-            decimal duration, IntensityLevel intensity = IntensityLevel.Medium,
-            bool exclude = false, string notes = null)
+        /// <param name="item">The item for the entry.</param>
+        /// <param name="price">The price we pay for the item (in CAD).</param>
+        public Entry(User user, int year, int month, int day, Item item, 
+            decimal price)
         {
             UserId = user.Id;
             Date = new DateTime(year, month, day);
-            Activity = activity;
-            Duration = duration;
-            Intensity = intensity;
-            Exclude = exclude;
-            Notes = notes;
+            Item = item;
+            Price = price;
         }
 
         /// <summary>
@@ -58,40 +51,21 @@ namespace Drette.Tender.Shared.Models
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// The activity ID for the entry. The ID value should map to an ID in the activities collection.
+        /// The item ID for the entry. The ID value should map to an ID in the items collection.
         /// </summary>
-        [Display(Name = "Activity")]
-        public int ActivityId { get; set; }
+        [Display(Name = "Item")]
+        public int ItemId { get; set; }
 
         /// <summary>
-        /// The activity for the entry.
+        /// The item for the entry.
         /// </summary>
-        public Item Activity { get; set; }
+        public Item Item { get; set; }
 
         /// <summary>
-        /// The duration for the entry (in minutes).
+        /// The price for the entry (in minutes).
         /// </summary>
-        public decimal Duration { get; set; }
+        public decimal Price { get; set; }
 
-        /// <summary>
-        /// The level of intensity for the entry.
-        /// </summary>
-        public IntensityLevel Intensity { get; set; }
 
-        /// <summary>
-        /// Whether or not this entry should be excluded when calculating the total fitness activity.
-        /// </summary>
-        public bool Exclude { get; set; }
-
-        /// <summary>
-        /// The notes for the entry.
-        /// </summary>
-        [MaxLength(200, ErrorMessage = "The Notes field cannot be longer than 200 characters.")]
-        public string Notes { get; set; }
-
-        /// <summary>
-        /// The level of intensity for the entry as a string.
-        /// </summary>
-        public string IntensityName => Intensity.ToString();
     }
 }

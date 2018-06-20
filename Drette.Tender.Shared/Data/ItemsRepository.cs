@@ -6,24 +6,24 @@ using Drette.Tender.Shared.Models;
 namespace Drette.Tender.Shared.Data
 {
     /// <summary>
-    /// Repository for activities.
+    /// Repository for items.
     /// </summary>
-    public class ActivitiesRepository : BaseRepository<Item>
+    public class ItemsRepository : BaseRepository<Item>
     {
-        public ActivitiesRepository(Context context) 
+        public ItemsRepository(Context context) 
             : base(context)
         {
         }
 
 
         /// <summary>
-        /// Returns a collection of activities.
+        /// Returns a collection of items.
         /// </summary>
-        /// <returns>A list of activities.</returns>
+        /// <returns>A list of items.</returns>
         public IList<Item> GetList()
         {
-            return Context.Activities
-                .OrderBy(a => a.Name)
+            return Context.Items
+                .OrderBy(a => a.Id)
                 .ToList();
         }
     }

@@ -14,12 +14,12 @@ namespace Drette.Tender.Controllers
     public class EntriesController : Controller
     {
         private EntriesRepository _entriesRepository = null;
-        private ActivitiesRepository _activitiesRepository = null;
+        private ItemsRepository _itemsRepository = null;
 
-        public EntriesController(EntriesRepository entriesRepository, ActivitiesRepository activitiesRepository)
+        public EntriesController(EntriesRepository entriesRepository, ItemsRepository itemsRepository)
         {
             _entriesRepository = entriesRepository;
-            _activitiesRepository = activitiesRepository;
+            _itemsRepository = itemsRepository;
         }
 
         public ActionResult Index()
@@ -28,23 +28,21 @@ namespace Drette.Tender.Controllers
 
             IList<Entry> entries = _entriesRepository.GetList(userId);
 
-            // Calculate the total activity.
-            decimal totalActivity = entries
-                .Where(e => e.Exclude == false)
-                .Sum(e => e.Duration);
+            // Calculate the total value of the inventory.
+            decimal totalValue = entries
+                .Sum(e => e.Price);
 
-            // Determine the number of days that have entries.
-            int numberOfActiveDays = entries
-                .Select(e => e.Date)
-                .Distinct()
+            // Determine the number of Item in the inventory.
+            int numberOfItems = entries
+                .Select(e => e.Item)
                 .Count();
 
             var viewModel = new EntriesIndexViewModel()
             {
                 Entries = entries,
-                TotalActivity = totalActivity,
-                AverageDailyActivity = numberOfActiveDays != 0 ?
-                    (totalActivity / numberOfActiveDays) : 0
+                TotalValue = totalValue,
+                AverageInventoryValue = numberOfItems != 0 ?
+                    (totalValue / numberOfItems) : 0
             };
 
             return View(viewModel);
@@ -56,7 +54,7 @@ namespace Drette.Tender.Controllers
 
             viewModel.Entry.UserId = User.Identity.GetUserId();
 
-            viewModel.Init(_activitiesRepository);
+            viewModel.Init(_itemsRepository);
 
             return View(viewModel);
         }
@@ -79,7 +77,7 @@ namespace Drette.Tender.Controllers
                 return RedirectToAction("Index");
             }
 
-            viewModel.Init(_activitiesRepository);
+            viewModel.Init(_itemsRepository);
 
             return View(viewModel);
         }
@@ -104,7 +102,7 @@ namespace Drette.Tender.Controllers
             {
                 Entry = entry
             };
-            viewModel.Init(_activitiesRepository);
+            viewModel.Init(_itemsRepository);
 
             return View(viewModel);
         }
@@ -134,7 +132,7 @@ namespace Drette.Tender.Controllers
                 return RedirectToAction("Index");
             }
 
-            viewModel.Init(_activitiesRepository);
+            viewModel.Init(_itemsRepository);
 
             return View(viewModel);
         }
@@ -178,12 +176,12 @@ namespace Drette.Tender.Controllers
 
         private void ValidateEntry(Entry entry)
         {
-            // If there aren't any "Duration" field validation errors
-            // then make sure that the duration is greater than "0".
-            if (ModelState.IsValidField("Duration") && entry.Duration <= 0)
+            // If there aren't any "Price" field validation errors
+            // then make sure that the price is greater than "0".
+            if (ModelState.IsValidField("Price") && entry.Price <= 0)
             {
-                ModelState.AddModelError("Duration",
-                    "The Duration field value must be greater than '0'.");
+                ModelState.AddModelError("Price",
+                    "The Price field value must be greater than '0'.");
             }
         }
     }

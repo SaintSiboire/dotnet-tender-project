@@ -12,15 +12,15 @@ namespace Drette.Tender.ViewModels
     {
         public Entry Entry { get; set; } = new Entry();
 
-        public SelectList ActivitiesSelectListItems { get; set; }
+        public SelectList ItemsSelectList { get; set; }
 
         /// <summary>
         /// Initializes the view model.
         /// </summary>
-        public void Init(ActivitiesRepository activitiesRepository)
+        public void Init(ItemsRepository itemsRepository)
         {
-            ActivitiesSelectListItems = new SelectList(
-                activitiesRepository.GetList(), "Id", "Name");
+            ItemsSelectList = new SelectList(
+                itemsRepository.GetList(), "Id", "Name");
         }
     }
 }

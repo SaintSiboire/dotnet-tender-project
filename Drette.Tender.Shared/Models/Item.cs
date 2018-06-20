@@ -14,6 +14,7 @@ namespace Drette.Tender.Shared.Models
         }
 
         public int Id { get; set; }
+        public string Name { get; set; }
         public string ModelId { get; set; }
         public decimal Price { get; set; }
 

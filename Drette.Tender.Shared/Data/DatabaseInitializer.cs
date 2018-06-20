@@ -22,7 +22,7 @@ namespace Drette.Tender.Shared.Data
         {
             var userStore = new UserStore<User>(context);
             var userManager = new ApplicationUserManager(userStore);
-            var activityBasketball = new Item() { Name = "Basketball" };
+            var activityBasketball = new Item() { Name = "Adjustable Voltage Regulator / Reducing Module" };
             var activityBiking = new Item() { Name = "Biking" };
             var activityHiking = new Item() { Name = "Hiking" };
             var activityKayaking = new Item() { Name = "Kayaking" };
@@ -63,11 +63,11 @@ namespace Drette.Tender.Shared.Data
                 activityWeightLifting
             };
 
-            context.Activities.AddRange(activities);
+            context.Items.AddRange(activities);
 
             var entries = new List<Entry>()
             {
-                new Entry(userBob, 2017, 7, 8, activityBiking, 10.0m),
+                new Entry(userBob, 2017, 7, 8, activityBasketball, 10.0m),
                 new Entry(userBob, 2017, 7, 9, activityBiking, 12.2m),
                 new Entry(userPet, 2017, 7, 10, activityHiking, 123.0m),
                 new Entry(userBob, 2017, 7, 12, activityBiking, 10.0m),

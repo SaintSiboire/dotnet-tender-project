@@ -29,7 +29,7 @@ namespace Drette.Tender.Shared.Data
             if (includeRelatedEntities)
             {
                 entries = entries
-                    .Include(e => e.Activity);
+                    .Include(e => e.Item);
             }
 
             return entries
@@ -45,7 +45,7 @@ namespace Drette.Tender.Shared.Data
         public IList<Entry> GetList(string userId)
         {
             return Context.Entries
-                .Include(e => e.Activity)
+                .Include(e => e.Item)
                 .Where(e => e.UserId == userId)
                 .OrderByDescending(e => e.Date)
                 .ThenByDescending(e => e.Id)

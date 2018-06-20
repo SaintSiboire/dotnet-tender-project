@@ -17,10 +17,10 @@
 <div class="stats">
     <h2 class="stats-header h3">Minutes of Activity</h2>
     <div class="stats-left">
-        <span class="stats-number">@Model.AverageDailyActivity.ToString("n1")</span> daily average
+        <span class="stats-number">@Model.AverageInventoryValue.ToString("n1")</span> daily average
     </div>
     <div class="stats-right">
-        <span class="stats-number">@Model.TotalActivity.ToString("n1")</span> total
+        <span class="stats-number">@Model.TotalValue.ToString("n1")</span> total
     </div>
 </div>
 
@@ -43,9 +43,8 @@
                     <span class="hidden-xs">@entry.Date.ToString("MM/dd/yyyy")</span>
                     <span class="hidden-sm hidden-md hidden-lg">@entry.Date.ToString("MM/dd")</span>
                 </td>
-                <td>@entry.Activity.Name</td>
-                <td>@entry.Duration.ToString("0.0#")</td>
-                <td class="hidden-xs">@entry.Intensity</td>
+                <td>@entry.Item.Name</td>
+                <td>@entry.Price.ToString("0.0#")</td>
                 <td>
                     <div class="pull-right">
                         <a href="@Url.Action("Edit", new { id = entry.Id })" class="btn btn-warning btn-sm margin-right">
