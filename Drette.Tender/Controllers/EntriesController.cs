@@ -14,9 +14,9 @@ namespace Drette.Tender.Controllers
     public class EntriesController : Controller
     {
         private EntriesRepository _entriesRepository = null;
-        private ItemsRepository _itemsRepository = null;
+        private InventoriesRepository _itemsRepository = null;
 
-        public EntriesController(EntriesRepository entriesRepository, ItemsRepository itemsRepository)
+        public EntriesController(EntriesRepository entriesRepository, InventoriesRepository itemsRepository)
         {
             _entriesRepository = entriesRepository;
             _itemsRepository = itemsRepository;

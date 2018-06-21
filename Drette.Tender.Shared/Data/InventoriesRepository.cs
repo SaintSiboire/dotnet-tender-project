@@ -8,9 +8,9 @@ namespace Drette.Tender.Shared.Data
     /// <summary>
     /// Repository for items.
     /// </summary>
-    public class ItemsRepository : BaseRepository<Item>
+    public class InventoriesRepository : BaseRepository<Inventory>
     {
-        public ItemsRepository(Context context) 
+        public InventoriesRepository(Context context) 
             : base(context)
         {
         }
@@ -20,7 +20,7 @@ namespace Drette.Tender.Shared.Data
         /// Returns a collection of items.
         /// </summary>
         /// <returns>A list of items.</returns>
-        public IList<Item> GetList()
+        public IList<Inventory> GetList()
         {
             return Context.Items
                 .OrderBy(a => a.Id)

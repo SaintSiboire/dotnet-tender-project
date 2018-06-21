@@ -17,7 +17,7 @@ namespace Drette.Tender.ViewModels
         /// <summary>
         /// Initializes the view model.
         /// </summary>
-        public void Init(ItemsRepository itemsRepository)
+        public void Init(InventoriesRepository itemsRepository)
         {
             ItemsSelectList = new SelectList(
                 itemsRepository.GetList(), "Id", "Name");

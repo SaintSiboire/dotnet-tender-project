@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 namespace Drette.Tender.Shared.Models
 {
     /// <summary>
-    /// The Model Code and Name of Items.
+    /// The Detail of the Item.
     /// </summary>
-    public class Model
+    public class Part
     {
+        public Part()
+        {
+            Inventories = new List<Inventory>();
+        }
+
         public int Id { get; set; }
         public string Code { get; set; }
-        public int SpecId { get; set; }
+
+        public ICollection<Inventory> Inventories { get; set; }
+
     }
 }

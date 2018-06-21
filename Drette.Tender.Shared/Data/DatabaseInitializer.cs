@@ -22,16 +22,16 @@ namespace Drette.Tender.Shared.Data
         {
             var userStore = new UserStore<User>(context);
             var userManager = new ApplicationUserManager(userStore);
-            var activityBasketball = new Item() { Name = "Adjustable Voltage Regulator / Reducing Module" };
-            var activityBiking = new Item() { Name = "Biking" };
-            var activityHiking = new Item() { Name = "Hiking" };
-            var activityKayaking = new Item() { Name = "Kayaking" };
-            var activityPokemonGo = new Item() { Name = "Pokemon Go" };
-            var activityRunning = new Item() { Name = "Running" };
-            var activitySkiing = new Item() { Name = "Skiing" };
-            var activitySwimming = new Item() { Name = "Swimming" };
-            var activityWalking = new Item() { Name = "Walking" };
-            var activityWeightLifting = new Item() { Name = "Weight Lifting" };
+            var activityBasketball = new Inventory() { Name = "Adjustable Voltage Regulator / Reducing Module" };
+            var activityBiking = new Inventory() { Name = "Biking" };
+            var activityHiking = new Inventory() { Name = "Hiking" };
+            var activityKayaking = new Inventory() { Name = "Kayaking" };
+            var activityPokemonGo = new Inventory() { Name = "Pokemon Go" };
+            var activityRunning = new Inventory() { Name = "Running" };
+            var activitySkiing = new Inventory() { Name = "Skiing" };
+            var activitySwimming = new Inventory() { Name = "Swimming" };
+            var activityWalking = new Inventory() { Name = "Walking" };
+            var activityWeightLifting = new Inventory() { Name = "Weight Lifting" };
 
             var userBob = new User
             {
@@ -49,7 +49,7 @@ namespace Drette.Tender.Shared.Data
 
             userManager.Create(userPet, "qwerty");
 
-            var activities = new List<Item>()
+            var activities = new List<Inventory>()
             {
                 activityBasketball,
                 activityBiking,

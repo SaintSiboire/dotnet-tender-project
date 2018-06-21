@@ -37,7 +37,7 @@ namespace Drette.Tender.App_Start
         {
             container.Register<Context>(Lifestyle.Scoped);
             container.Register<EntriesRepository>(Lifestyle.Scoped);
-            container.Register<ItemsRepository>(Lifestyle.Scoped);
+            container.Register<InventoriesRepository>(Lifestyle.Scoped);
 
             container.Register<ApplicationUserManager>(Lifestyle.Scoped);
             container.Register<ApplicationSignInManager>(Lifestyle.Scoped);
