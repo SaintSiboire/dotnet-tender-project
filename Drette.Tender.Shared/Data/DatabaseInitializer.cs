@@ -22,16 +22,6 @@ namespace Drette.Tender.Shared.Data
         {
             var userStore = new UserStore<User>(context);
             var userManager = new ApplicationUserManager(userStore);
-            var activityBasketball = new Inventory() { Name = "Adjustable Voltage Regulator / Reducing Module" };
-            var activityBiking = new Inventory() { Name = "Biking" };
-            var activityHiking = new Inventory() { Name = "Hiking" };
-            var activityKayaking = new Inventory() { Name = "Kayaking" };
-            var activityPokemonGo = new Inventory() { Name = "Pokemon Go" };
-            var activityRunning = new Inventory() { Name = "Running" };
-            var activitySkiing = new Inventory() { Name = "Skiing" };
-            var activitySwimming = new Inventory() { Name = "Swimming" };
-            var activityWalking = new Inventory() { Name = "Walking" };
-            var activityWeightLifting = new Inventory() { Name = "Weight Lifting" };
 
             var userBob = new User
             {
@@ -49,37 +39,61 @@ namespace Drette.Tender.Shared.Data
 
             userManager.Create(userPet, "qwerty");
 
-            var activities = new List<Inventory>()
+            var part1 = new Part() { Name = "Adjustable Voltage Regulator / Reducing Module" };
+            var part2 = new Part() { Name = "Biking" };
+            var part3 = new Part() { Name = "Hiking" };
+            var part4 = new Part() { Name = "Kayaking" };
+            var part5 = new Part() { Name = "Pokemon Go" };
+            var part6 = new Part() { Name = "Running" };
+            var part7 = new Part() { Name = "Skiing" };
+            var part8 = new Part() { Name = "Swimming" };
+            var part9 = new Part() { Name = "Walking" };
+            var part10 = new Part() { Name = "Weight Lifting" };
+
+            var parts = new List<Part>()
             {
-                activityBasketball,
-                activityBiking,
-                activityHiking,
-                activityKayaking,
-                activityPokemonGo,
-                activityRunning,
-                activitySkiing,
-                activitySwimming,
-                activityWalking,
-                activityWeightLifting
+                part1,
+                part2,
+                part3,
+                part4,
+                part5,
+                part6,
+                part7,
+                part8,
+                part9,
+                part10
             };
 
-            context.Items.AddRange(activities);
+            context.Parts.AddRange(parts);
 
-            var entries = new List<Entry>()
+            var shop1 = new Shop() { Name = "Shop1", WebSite = "shop1@gmail.com" };
+            var shop2 = new Shop() { Name = "Shop2", WebSite = "shop2@gmail.com" };
+
+            var shops = new List<Shop>()
             {
-                new Entry(userBob, 2017, 7, 8, activityBasketball, 10.0m),
-                new Entry(userBob, 2017, 7, 9, activityBiking, 12.2m),
-                new Entry(userPet, 2017, 7, 10, activityHiking, 123.0m),
-                new Entry(userBob, 2017, 7, 12, activityBiking, 10.0m),
-                new Entry(userPet, 2017, 7, 13, activityWalking, 32.2m),
-                new Entry(userPet, 2017, 7, 13, activityBiking, 13.3m),
-                new Entry(userBob, 2017, 7, 14, activityBiking, 10.0m),
-                new Entry(userPet, 2017, 7, 15, activityWalking, 28.6m),
-                new Entry(userBob, 2017, 7, 16, activityBiking, 12.7m),
-                new Entry(userPet, 2017, 7, 16, activityPokemonGo, 23.4m)
+                shop1,
+                shop2
             };
 
-            context.Entries.AddRange(entries);
+            context.Shops.AddRange(shops);
+
+            var project1 = new Project() { Name = "project1" };
+            var project2 = new Project() { Name = "project2"};
+
+            var projects = new List<Project>()
+            {
+                project1,
+                project2
+            };
+
+            context.Projects.AddRange(projects);
+
+
+            var inventory1 = new Inventory() { Part = part1, Project = project1, Shop = shop1, Price = 10m };
+            context.Inventories.Add(inventory1);
+
+            var inventory2 = new Inventory() { Part = part2, Project = project2, Shop = shop2, Price = 13m };
+            context.Inventories.Add(inventory2);
 
             context.SaveChanges();
         }

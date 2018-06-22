@@ -15,16 +15,41 @@ namespace Drette.Tender.Shared.Data
         {
         }
 
-
-        /// <summary>
-        /// Returns a collection of items.
-        /// </summary>
-        /// <returns>A list of items.</returns>
-        public IList<Inventory> GetList()
+        public override Inventory Get(int id, bool includeRelatedEntities = true)
         {
-            return Context.Items
-                .OrderBy(a => a.Id)
+            var inventory = Context.Inventories
+                .Where(i => i.Id == id)
+                .SingleOrDefault();
+
+            if(includeRelatedEntities)
+            {
+                Context.Parts
+                    .Where(p => p.Id == inventory.PartId)
+                    .Single();
+
+                Context.Shops
+                    .Where(s => s.Id == inventory.ShopId)
+                    .Single();
+
+                Context.Projects
+                    .Where(p => p.Id == inventory.ProjectId)
+                    .Single();
+            }
+
+            return inventory;
+
+        }
+
+
+
+        override public IList<Inventory> GetList()
+        {
+            return Context.Inventories
+                .AsNoTracking()
+                .OrderBy(i => i.Id)
                 .ToList();
         }
+
+
     }
 }

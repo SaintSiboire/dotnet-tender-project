@@ -1,0 +1,36 @@
+﻿@model List<Drette.Tender.Shared.Models.Inventory>
+@{
+    ViewBag.Title = "Inventories";
+}
+@Html.Partial("_Message")
+<h2>@ViewBag.Title</h2>
+<div class="pull-right">
+    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-plus"></span> Add Inventory
+    </a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Inventory</th>
+            <th>Published On</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventory in Model)
+        {
+            <tr>
+                <td>"DisplayText"</td>
+                <td>PublishedOn.ToString("MM/dd/yyyy")</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Detail", new { id = inventory.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -15,6 +15,7 @@ namespace Drette.Tender.Shared.Data
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Part> Parts { get; set; }
         public DbSet<Shop> Shops { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         public Context()
             :base("Context")

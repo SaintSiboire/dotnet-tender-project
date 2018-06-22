@@ -3,27 +3,22 @@
 namespace Drette.Tender.Shared.Models
 {
     /// <summary>
-    /// Represents an Item.
+    /// Represents a part in the inventory.
     /// </summary>
     public class Inventory
     {
 
-        public Inventory()
-        {
-            Entries = new List<Entry>();
-        }
 
         public int Id { get; set; }
+        public int ProjectId { get; set; }
         public int PartId { get; set; }
         public int ShopId { get; set; }
         public decimal Price { get; set; }
 
-        public Part Item { get; set; }
+        public Project Project { get; set; }
+        public Part Part { get; set; }
         public Shop Shop { get; set; }
 
-        /// <summary>
-        /// The entries associated with this item.
-        /// </summary>
-        public IList<Entry> Entries { get; set; }
+
     }
 }
