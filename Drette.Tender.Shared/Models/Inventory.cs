@@ -10,12 +10,10 @@ namespace Drette.Tender.Shared.Models
 
 
         public int Id { get; set; }
-        public int ProjectId { get; set; }
         public int PartId { get; set; }
         public int ShopId { get; set; }
         public decimal Price { get; set; }
 
-        public Project Project { get; set; }
         public Part Part { get; set; }
         public Shop Shop { get; set; }
 
