@@ -36,7 +36,7 @@ namespace Drette.Tender.App_Start
         private static void InitializeContainer(Container container)
         {
             container.Register<Context>(Lifestyle.Scoped);
-            container.Register<ProductRepository>(Lifestyle.Scoped);
+            container.Register<ProductsRepository>(Lifestyle.Scoped);
             container.Register<InventoriesRepository>(Lifestyle.Scoped);
 
             container.Register<ApplicationUserManager>(Lifestyle.Scoped);

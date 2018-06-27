@@ -1,6 +1,6 @@
-﻿@model List<Drette.Tender.Shared.Models.Inventory>
+﻿@model List<Drette.Tender.Shared.Models.Product>
 @{
-    ViewBag.Title = "Inventories";
+    ViewBag.Title = "Products";
 }
 @Html.Partial("_Message")
 <h2>@ViewBag.Title</h2>
@@ -12,20 +12,20 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Inventory</th>
+            <th>Inventory Id</th>
             <th>Product Name</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var inventory in Model)
+        @foreach (var product in Model)
         {
             <tr>
-                <td>@inventory.Id</td>
-                <td>@inventory.UnitQty</td>
+                <td>@product.InventoryId</td>
+                <td>@product.Name</td>
                 <td>
                     <div class="pull-right">
-                        <a href="@Url.Action("Detail", new { id = inventory.Id })" class="btn btn-primary btn-xs margin-right">
+                        <a href="@Url.Action("Detail", new { id = product.Id })" class="btn btn-primary btn-xs margin-right">
                             <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
                         </a>
                     </div>

@@ -51,7 +51,7 @@ namespace Drette.Tender.Controllers
                 {
                     //Sign-in the user and redirect them to the web app's "Home" page
                     await _signInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    RedirectToAction("Index", "Inventories");
+                    RedirectToAction("Index", "Products");
                 }
                 //If there were errors...
                 //Add model errors
@@ -60,7 +60,7 @@ namespace Drette.Tender.Controllers
                     ModelState.AddModelError("", error);
                 }
 
-                return RedirectToAction("Index", "Inventories");
+                return RedirectToAction("Index", "Products");
             }
 
             return View(viewModel);
@@ -90,7 +90,7 @@ namespace Drette.Tender.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Inventories");
+                    return RedirectToAction("Index", "Products");
                 case SignInStatus.Failure:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(viewModel);
@@ -108,7 +108,7 @@ namespace Drette.Tender.Controllers
         {
             _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
 
-            return RedirectToAction("Index", "Inventories");
+            return RedirectToAction("Index", "Products");
         }
 
     }

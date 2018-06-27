@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Drette.Tender.Shared.Data
 {
-    public class ProductRepository : BaseRepository<Product>
+    public class ProductsRepository : BaseRepository<Product>
     {
-        public ProductRepository(Context context)
+        public ProductsRepository(Context context)
             :base(context)
         {
         }
