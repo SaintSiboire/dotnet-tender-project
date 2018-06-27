@@ -24,16 +24,14 @@ namespace Drette.Tender.Shared.Data
             if(includeRelatedEntities)
             {
                 Context.Parts
-                    .Where(p => p.Id == inventory.PartId)
+                    .Where(p => p.Id == inventory.ProductId)
                     .Single();
 
                 Context.Shops
-                    .Where(s => s.Id == inventory.ShopId)
+                    .Where(s => s.Id == inventory.SupplierId)
                     .Single();
 
-                Context.Projects
-                    .Where(p => p.Id == inventory.ProjectId)
-                    .Single();
+
             }
 
             return inventory;

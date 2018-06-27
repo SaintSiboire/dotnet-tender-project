@@ -13,8 +13,8 @@ namespace Drette.Tender.Shared.Data
     public class Context : IdentityDbContext<User>
     {
         public DbSet<Inventory> Inventories { get; set; }
-        public DbSet<Part> Parts { get; set; }
-        public DbSet<Shop> Shops { get; set; }
+        public DbSet<Product> Parts { get; set; }
+        public DbSet<Supplier> Shops { get; set; }
         public DbSet<Project> Projects { get; set; }
 
         public Context()

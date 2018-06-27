@@ -39,18 +39,18 @@ namespace Drette.Tender.Shared.Data
 
             userManager.Create(userPet, "qwerty");
 
-            var part1 = new Part() { Name = "Adjustable Voltage Regulator / Reducing Module" };
-            var part2 = new Part() { Name = "Biking" };
-            var part3 = new Part() { Name = "Hiking" };
-            var part4 = new Part() { Name = "Kayaking" };
-            var part5 = new Part() { Name = "Pokemon Go" };
-            var part6 = new Part() { Name = "Running" };
-            var part7 = new Part() { Name = "Skiing" };
-            var part8 = new Part() { Name = "Swimming" };
-            var part9 = new Part() { Name = "Walking" };
-            var part10 = new Part() { Name = "Weight Lifting" };
+            var part1 = new Product() { Name = "Adjustable Voltage Regulator / Reducing Module" };
+            var part2 = new Product() { Name = "Biking" };
+            var part3 = new Product() { Name = "Hiking" };
+            var part4 = new Product() { Name = "Kayaking" };
+            var part5 = new Product() { Name = "Pokemon Go" };
+            var part6 = new Product() { Name = "Running" };
+            var part7 = new Product() { Name = "Skiing" };
+            var part8 = new Product() { Name = "Swimming" };
+            var part9 = new Product() { Name = "Walking" };
+            var part10 = new Product() { Name = "Weight Lifting" };
 
-            var parts = new List<Part>()
+            var parts = new List<Product>()
             {
                 part1,
                 part2,
@@ -66,10 +66,10 @@ namespace Drette.Tender.Shared.Data
 
             context.Parts.AddRange(parts);
 
-            var shop1 = new Shop() { Name = "Shop1", WebSite = "shop1@gmail.com" };
-            var shop2 = new Shop() { Name = "Shop2", WebSite = "shop2@gmail.com" };
+            var shop1 = new Supplier() { Name = "Shop1", WebSite = "shop1@gmail.com" };
+            var shop2 = new Supplier() { Name = "Shop2", WebSite = "shop2@gmail.com" };
 
-            var shops = new List<Shop>()
+            var shops = new List<Supplier>()
             {
                 shop1,
                 shop2
@@ -89,10 +89,10 @@ namespace Drette.Tender.Shared.Data
             context.Projects.AddRange(projects);
 
 
-            var inventory1 = new Inventory() { Part = part1, Project = project1, Shop = shop1, Price = 10m };
+            var inventory1 = new Inventory() { Product = part1, Supplier = shop1, Price = 10m };
             context.Inventories.Add(inventory1);
 
-            var inventory2 = new Inventory() { Part = part2, Project = project2, Shop = shop2, Price = 13m };
+            var inventory2 = new Inventory() { Product = part2, Supplier = shop2, Price = 13m };
             context.Inventories.Add(inventory2);
 
             context.SaveChanges();

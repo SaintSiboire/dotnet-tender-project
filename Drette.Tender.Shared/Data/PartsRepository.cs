@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Drette.Tender.Shared.Data
 {
-    public class PartsRepository : BaseRepository<Part>
+    public class PartsRepository : BaseRepository<Product>
     {
         public PartsRepository(Context context)
             :base(context)
         {
         }
 
-        public override Part Get(int id, bool includeRelatedEntities = true)
+        public override Product Get(int id, bool includeRelatedEntities = true)
         {
             var part = Context.Parts.AsQueryable();
 
@@ -30,7 +30,7 @@ namespace Drette.Tender.Shared.Data
                     .SingleOrDefault();
         }
 
-        public override IList<Part> GetList()
+        public override IList<Product> GetList()
         {
             return Context.Parts
                         .AsNoTracking()
