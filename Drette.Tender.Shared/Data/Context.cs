@@ -13,9 +13,11 @@ namespace Drette.Tender.Shared.Data
     public class Context : IdentityDbContext<User>
     {
         public DbSet<Inventory> Inventories { get; set; }
-        public DbSet<Product> Parts { get; set; }
-        public DbSet<Supplier> Shops { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<Unit> Units { get; set; }
 
         public Context()
             :base("Context")
@@ -33,9 +35,9 @@ namespace Drette.Tender.Shared.Data
             // Using the fluent API to configure entity properties...
 
             // Configure the precision and scale for the Inventory.Price property.
-            modelBuilder.Entity<Inventory>()
-                .Property(i => i.Price)
-                .HasPrecision(5, 2);
+            //modelBuilder.Entity<Inventory>()
+            //    .Property(i => i.Price)
+            //    .HasPrecision(5, 2);
         }
     }
 }

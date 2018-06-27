@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Drette.Tender.Shared.Models
 {
-    public class Unit
+    public class ProductType
     {
 
         public int Id { get; set; }

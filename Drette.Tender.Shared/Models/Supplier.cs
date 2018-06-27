@@ -14,7 +14,7 @@ namespace Drette.Tender.Shared.Models
     {
         public Supplier()
         {
-            Inventories = new List<Inventory>();
+            Products = new List<Product>();
         }
 
         public int Id { get; set; }
@@ -24,7 +24,7 @@ namespace Drette.Tender.Shared.Models
         [EmailAddress]
         public string WebSite { get; set; }
 
-        public ICollection<Inventory> Inventories { get; set; }
+        public ICollection<Product> Products { get; set; }
 
 
 

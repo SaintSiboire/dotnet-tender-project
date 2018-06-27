@@ -28,5 +28,7 @@ namespace Drette.Tender.Shared.Models
         public Product Product { get; set; }
 
 
+
+
     }
 }

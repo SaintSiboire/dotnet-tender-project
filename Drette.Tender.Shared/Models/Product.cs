@@ -11,24 +11,26 @@ namespace Drette.Tender.Shared.Models
     /// </summary>
     public class Product
     {
-        public Product()
-        {
-            Inventories = new List<Inventory>();
-        }
+
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Code { get; set; }
+        public string ProductCode { get; set; }
+        public string Description { get; set; }
+
+
+        public int ProductTypeId { get; set; }
 
         public int InventoryId { get; set; }
 
         public int SupplierId { get; set; }
         public string SupplierProductCode { get; set; }
 
+        public ProductType ProductType { get; set; }
         public Inventory Inventory { get; set; }
         public Supplier Supplier { get; set; }
 
-        public ICollection<Inventory> Inventories { get; set; }
+
 
     }
 }
