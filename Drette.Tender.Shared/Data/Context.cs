@@ -15,7 +15,6 @@ namespace Drette.Tender.Shared.Data
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Project> Projects { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
 

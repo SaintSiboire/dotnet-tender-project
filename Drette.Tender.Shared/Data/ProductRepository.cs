@@ -8,33 +8,33 @@ using System.Threading.Tasks;
 
 namespace Drette.Tender.Shared.Data
 {
-    public class PartsRepository : BaseRepository<Product>
+    public class ProductRepository : BaseRepository<Product>
     {
-        public PartsRepository(Context context)
+        public ProductRepository(Context context)
             :base(context)
         {
         }
 
         public override Product Get(int id, bool includeRelatedEntities = true)
         {
-            var part = Context.Parts.AsQueryable();
+            var product = Context.Products.AsQueryable();
 
             if(includeRelatedEntities)
             {
-                part = part
-                    .Include(p => p.Inventories);
+                product = product
+                    .Include(p => p.Inventory);
             }
 
-            return part
+            return product
                     .Where(p => p.Id == id)
                     .SingleOrDefault();
         }
 
         public override IList<Product> GetList()
         {
-            return Context.Parts
+            return Context.Products
                         .AsNoTracking()
-                        .OrderBy(p => p.Code)
+                        .OrderBy(p => p.InventoryId)
                         .ToList();
         }
     }

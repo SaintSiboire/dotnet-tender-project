@@ -16,19 +16,16 @@ namespace Drette.Tender.Shared.Data
             _context = context;
         }
 
-        public IList<Product> GetParts()
+        public IList<Product> GetProducts()
         {
-            return _context.Parts.OrderBy(p => p.Name).ToList();
+            return _context.Products.OrderBy(p => p.Name).ToList();
         }
 
         public IList<Supplier> GetShops()
         {
-            return _context.Shops.OrderBy(s => s.Name).ToList();
+            return _context.Suppliers.OrderBy(s => s.Name).ToList();
         }
 
-        public IList<Project> GetProjects()
-        {
-            return _context.Projects.OrderBy(p => p.Name).ToList();
-        }
+
     }
 }

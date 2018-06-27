@@ -8,9 +8,15 @@ namespace Drette.Tender.Shared.Models
 {
     public class Unit
     {
+        public Unit()
+        {
+            Inventories = new List<Inventory>();
+        }
 
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public ICollection<Inventory> Inventories { get; set; }
 
     }
 }

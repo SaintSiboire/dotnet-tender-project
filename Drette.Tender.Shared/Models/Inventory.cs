@@ -10,10 +10,9 @@ namespace Drette.Tender.Shared.Models
 
 
         public int Id { get; set; }
-        public int ProductId { get; set; }
         public bool Count { get; set; }
         public bool Follow { get; set; }
-        public int UnitTypeId { get; set; }
+        public int UnitId { get; set; }
         public int UnitQty { get; set; }
         public int UnitQtyByLot { get; set; }
         public int UnitMinQty { get; set; }
@@ -25,7 +24,6 @@ namespace Drette.Tender.Shared.Models
 
 
         public Unit Unit { get; set; }
-        public Product Product { get; set; }
 
 
 

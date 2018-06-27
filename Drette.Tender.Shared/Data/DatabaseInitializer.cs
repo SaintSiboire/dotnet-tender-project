@@ -39,61 +39,89 @@ namespace Drette.Tender.Shared.Data
 
             userManager.Create(userPet, "qwerty");
 
-            var part1 = new Product() { Name = "Adjustable Voltage Regulator / Reducing Module" };
-            var part2 = new Product() { Name = "Biking" };
-            var part3 = new Product() { Name = "Hiking" };
-            var part4 = new Product() { Name = "Kayaking" };
-            var part5 = new Product() { Name = "Pokemon Go" };
-            var part6 = new Product() { Name = "Running" };
-            var part7 = new Product() { Name = "Skiing" };
-            var part8 = new Product() { Name = "Swimming" };
-            var part9 = new Product() { Name = "Walking" };
-            var part10 = new Product() { Name = "Weight Lifting" };
+            var supplier1 = new Supplier() { Name = "Shop1", WebSite = "shop1@gmail.com" };
+            var supplier2 = new Supplier() { Name = "Shop2", WebSite = "shop2@gmail.com" };
 
-            var parts = new List<Product>()
+            var suppliers = new List<Supplier>()
             {
-                part1,
-                part2,
-                part3,
-                part4,
-                part5,
-                part6,
-                part7,
-                part8,
-                part9,
-                part10
+                supplier1,
+                supplier2
             };
 
-            context.Parts.AddRange(parts);
+            context.Suppliers.AddRange(suppliers);
 
-            var shop1 = new Supplier() { Name = "Shop1", WebSite = "shop1@gmail.com" };
-            var shop2 = new Supplier() { Name = "Shop2", WebSite = "shop2@gmail.com" };
+            var unit1 = new Unit() { Name = "Unit" };
+            context.Units.Add(unit1);
 
-            var shops = new List<Supplier>()
+            var inventory1 = new Inventory()
             {
-                shop1,
-                shop2
+                Count = true,
+                Follow = true,
+                Location = "Box #1",
+                LocationPrecision = "Storage #1",
+                Notes = "My notes.",
+                Unit = unit1,
+                UnitQty = 1,
+                UnitMinQty = 10,
+                UnitMaxQty = 50,
+                UnitQtyByLot = 4,
+                OrderMinQty = 1
             };
-
-            context.Shops.AddRange(shops);
-
-            var project1 = new Project() { Name = "project1" };
-            var project2 = new Project() { Name = "project2"};
-
-            var projects = new List<Project>()
-            {
-                project1,
-                project2
-            };
-
-            context.Projects.AddRange(projects);
-
-
-            var inventory1 = new Inventory() { Product = part1, Supplier = shop1, Price = 10m };
             context.Inventories.Add(inventory1);
 
-            var inventory2 = new Inventory() { Product = part2, Supplier = shop2, Price = 13m };
+            var inventory2 = new Inventory()
+            {
+                Count = true,
+                Follow = true,
+                Location = "Box #2",
+                LocationPrecision = "Storage #1",
+                Notes = "My notes.",
+                Unit = unit1,
+                UnitQty = 1,
+                UnitMinQty = 13,
+                UnitMaxQty = 55,
+                UnitQtyByLot = 5,
+                OrderMinQty = 1
+            };
             context.Inventories.Add(inventory2);
+
+            var productType1 = new ProductType() { Name = "Electronic" };
+            context.ProductTypes.Add(productType1);
+
+            var product1 = new Product()
+            {
+                Name = "Adjustable Voltage Regulator / Reducing Module",
+                ProductCode = "3",
+                Description = "My description.",
+                ProductType = productType1,
+                Inventory = inventory1,
+                Supplier = supplier1,
+                SupplierProductCode = "21"
+            };
+            var product2 = new Product()
+            {
+                Name = "Relay Module",
+                ProductCode = "34",
+                Description = "My description.",
+                ProductType = productType1,
+                Inventory = inventory2,
+                Supplier = supplier2,
+                SupplierProductCode = "5"
+            };
+
+
+            var products = new List<Product>()
+            {
+                product1,
+                product2
+            };
+
+            context.Products.AddRange(products);
+
+           
+
+           
+
 
             context.SaveChanges();
         }

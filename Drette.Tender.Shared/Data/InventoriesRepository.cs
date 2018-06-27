@@ -21,18 +21,6 @@ namespace Drette.Tender.Shared.Data
                 .Where(i => i.Id == id)
                 .SingleOrDefault();
 
-            if(includeRelatedEntities)
-            {
-                Context.Parts
-                    .Where(p => p.Id == inventory.ProductId)
-                    .Single();
-
-                Context.Shops
-                    .Where(s => s.Id == inventory.SupplierId)
-                    .Single();
-
-
-            }
 
             return inventory;
 
