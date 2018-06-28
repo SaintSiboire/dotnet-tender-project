@@ -17,8 +17,6 @@ namespace Drette.Tender.Shared.Data
             Context = context;
         }
 
-        public abstract TEntity Get(int id, bool includeRelatedEntities = true);
-        public abstract IList<TEntity> GetList();
 
 
         public void Add(TEntity entity)

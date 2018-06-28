@@ -15,25 +15,30 @@ namespace Drette.Tender.Shared.Data
         {
         }
 
-        public override Product Get(int id, bool includeRelatedEntities = true)
+        public Product Get(int id, string userId, bool includeRelatedEntities = true)
         {
             var product = Context.Products.AsQueryable();
 
             if(includeRelatedEntities)
             {
                 product = product
-                    .Include(p => p.Inventory);
+                    .Include(p => p.Inventory)
+                    .Include(p => p.Supplier)
+                    .Include(p => p.ProductType);
             }
 
             return product
-                    .Where(p => p.Id == id)
+                    .Where(p => p.Id == id && p.UserId == userId)
                     .SingleOrDefault();
         }
 
-        public override IList<Product> GetList()
+        public IList<Product> GetList(string userId)
         {
             return Context.Products
-                        .AsNoTracking()
+                        .Include(p => p.Inventory)
+                        .Include(p => p.Supplier)
+                        .Include(p => p.ProductType)
+                        .Where(p => p.UserId == userId)
                         .OrderBy(p => p.InventoryId)
                         .ToList();
         }

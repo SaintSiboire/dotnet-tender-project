@@ -90,23 +90,27 @@ namespace Drette.Tender.Shared.Data
 
             var product1 = new Product()
             {
+                User = userBob,
                 Name = "Adjustable Voltage Regulator / Reducing Module",
                 ProductCode = "3",
                 Description = "My description.",
                 ProductType = productType1,
                 Inventory = inventory1,
                 Supplier = supplier1,
-                SupplierProductCode = "21"
+                SupplierProductCode = "21",
+                Cost = 13
             };
             var product2 = new Product()
             {
+                User = userBob,
                 Name = "Relay Module",
                 ProductCode = "34",
                 Description = "My description.",
                 ProductType = productType1,
                 Inventory = inventory2,
                 Supplier = supplier2,
-                SupplierProductCode = "5"
+                SupplierProductCode = "5",
+                Cost = 8
             };
 
 

@@ -133,6 +133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
@@ -193,6 +194,7 @@
     <Content Include="Views\Inventories\Index.cshtml" />
     <Content Include="Views\Shared\_Message.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

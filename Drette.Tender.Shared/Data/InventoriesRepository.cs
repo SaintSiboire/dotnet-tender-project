@@ -15,7 +15,7 @@ namespace Drette.Tender.Shared.Data
         {
         }
 
-        public override Inventory Get(int id, bool includeRelatedEntities = true)
+        public  Inventory Get(int id, bool includeRelatedEntities = true)
         {
             var inventory = Context.Inventories
                 .Where(i => i.Id == id)
@@ -28,7 +28,7 @@ namespace Drette.Tender.Shared.Data
 
 
 
-        override public IList<Inventory> GetList()
+        public IList<Inventory> GetList()
         {
             return Context.Inventories
                 .AsNoTracking()

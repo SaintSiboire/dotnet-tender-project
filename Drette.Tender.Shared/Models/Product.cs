@@ -17,6 +17,7 @@ namespace Drette.Tender.Shared.Models
         public string Name { get; set; }
         public string ProductCode { get; set; }
         public string Description { get; set; }
+        public decimal Cost { get; set; }
 
 
         public int ProductTypeId { get; set; }
@@ -26,6 +27,9 @@ namespace Drette.Tender.Shared.Models
         public int SupplierId { get; set; }
         public string SupplierProductCode { get; set; }
 
+        public string UserId { get; set; }
+
+        public User User { get; set; }
         public ProductType ProductType { get; set; }
         public Inventory Inventory { get; set; }
         public Supplier Supplier { get; set; }

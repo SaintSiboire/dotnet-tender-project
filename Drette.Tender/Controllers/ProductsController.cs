@@ -1,4 +1,7 @@
 ﻿using Drette.Tender.Shared.Data;
+using Drette.Tender.Shared.Models;
+using Drette.Tender.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +21,24 @@ namespace Drette.Tender.Controllers
 
         public ActionResult Index()
         {
-            var products = _productsRepository.GetList();
+            var userId = User.Identity.GetUserId();
 
-            return View(products);
+            IList<Product> products = _productsRepository.GetList(userId);
+
+            int totalProduct = products
+                .Count();
+
+            decimal totalValue = products
+                .Sum(p => p.Cost);
+
+            var viewModel = new ProductsIndexViewModel()
+            {
+                Products = products,
+                TotalProduct = totalProduct,
+                TotalValue = totalValue
+            };
+
+            return View(viewModel);
         }
     }
 }

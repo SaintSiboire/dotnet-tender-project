@@ -1,28 +1,52 @@
-﻿@model List<Drette.Tender.Shared.Models.Product>
+﻿@model Drette.Tender.ViewModels.ProductsIndexViewModel
+    @using Drette.Tender.Shared.Models
+
 @{
     ViewBag.Title = "Products";
 }
+
 @Html.Partial("_Message")
-<h2>@ViewBag.Title</h2>
-<div class="pull-right">
-    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Inventory
-    </a>
+
+<div class="stats">
+    <div class="stats-left">
+        <h2 class="stats-header h3">Nombre de produits</h2>
+        <span class="stats-number">@Model.TotalProduct.ToString()</span> produits
+    </div>
+    <div class="stats-right">
+        <h2 class="stats-header h3">Valeur totale</h2>
+        <span class="stats-number">@Model.TotalValue.ToString("n2")</span> $
+    </div>
 </div>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Inventory Id</th>
-            <th>Product Name</th>
-            <th>&nbsp;</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
+
+<h2>@ViewBag.Title</h2>
+
+
+@if (Model.Products.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>SKU</th>
+                <th>Fournisseur</th>
+                <th>Numéro d'inventaire</th>
+                <th>Coût</th>
+
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
             <tr>
                 <td>@product.InventoryId</td>
                 <td>@product.Name</td>
+                <td>@product.ProductCode</td>
+                <td>@product.Supplier.Name</td>
+                <td>@product.InventoryId</td>
+                <td>@product.Cost</td>
+
                 <td>
                     <div class="pull-right">
                         <a href="@Url.Action("Detail", new { id = product.Id })" class="btn btn-primary btn-xs margin-right">
@@ -31,6 +55,11 @@
                     </div>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>@Html.ActionLink("Cliquez ici", "Add") afin d'ajouter votre premier produit!</p>
+}
