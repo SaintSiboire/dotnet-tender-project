@@ -10,8 +10,8 @@ namespace Drette.Tender.Shared.Models
 
 
         public int Id { get; set; }
-        public bool Count { get; set; }
-        public bool Follow { get; set; }
+        public bool Counted { get; set; }
+        public bool Followed { get; set; }
         public int UnitId { get; set; }
         public int UnitQty { get; set; }
         public int UnitQtyByLot { get; set; }
