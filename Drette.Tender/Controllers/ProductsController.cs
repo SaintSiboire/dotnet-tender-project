@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,6 +40,25 @@ namespace Drette.Tender.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userId = User.Identity.GetUserId();
+
+            Product product = _productsRepository.Get((int)id, userId, includeRelatedEntities : true);
+
+            if(product == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(product);
         }
     }
 }
