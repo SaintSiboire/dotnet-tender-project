@@ -12,7 +12,6 @@ namespace Drette.Tender.Shared.Models
         public int Id { get; set; }
         public bool Counted { get; set; }
         public bool Followed { get; set; }
-        public int UnitId { get; set; }
         public int UnitQty { get; set; }
         public int UnitQtyByLot { get; set; }
         public int UnitMinQty { get; set; }
@@ -22,6 +21,10 @@ namespace Drette.Tender.Shared.Models
         public string LocationPrecision { get; set; }
         public string Notes { get; set; }
 
+        public int UnitId { get; set; }
+
+        public string UserId { get; set; }
+        public User User { get; set; }
 
         public Unit Unit { get; set; }
 

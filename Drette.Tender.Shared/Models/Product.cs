@@ -34,12 +34,11 @@ namespace Drette.Tender.Shared.Models
         public string SupplierProductCode { get; set; }
 
         public string UserId { get; set; }
-
         public User User { get; set; }
+
         public ProductType ProductType { get; set; }
         public Inventory Inventory { get; set; }
         public Supplier Supplier { get; set; }
-
 
 
     }

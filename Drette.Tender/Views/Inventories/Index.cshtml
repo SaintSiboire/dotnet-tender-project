@@ -1,13 +1,11 @@
 ﻿@model List<Drette.Tender.Shared.Models.Inventory>
 @{
-    ViewBag.Title = "Inventories";
+    ViewBag.Title = "Inventaires";
 }
 @Html.Partial("_Message")
-<h2>@ViewBag.Title</h2>
-<div class="pull-right">
-    <a href="@Url.Action("Add")" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span> Add Inventory
-    </a>
+
+<div class="pad-top">
+    <h2>@ViewBag.Title</h2>
 </div>
 <table class="table table-striped">
     <thead>

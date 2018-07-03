@@ -15,7 +15,7 @@ namespace Drette.Tender.Shared.Data
         {
         }
 
-        public Product Get(int id, string userId, bool includeRelatedEntities = true)
+        public override Product Get(int id, string userId, bool includeRelatedEntities = true)
         {
             var product = Context.Products.AsQueryable();
 
@@ -32,7 +32,7 @@ namespace Drette.Tender.Shared.Data
                     .SingleOrDefault();
         }
 
-        public IList<Product> GetList(string userId)
+        public override IList<Product> GetList(string userId)
         {
             return Context.Products
                         .Include(p => p.Inventory)

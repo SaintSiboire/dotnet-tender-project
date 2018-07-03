@@ -55,6 +55,7 @@ namespace Drette.Tender.Shared.Data
 
             var inventory1 = new Inventory()
             {
+                User = userBob,
                 Counted = true,
                 Followed = true,
                 Location = "Box #1",
@@ -71,6 +72,7 @@ namespace Drette.Tender.Shared.Data
 
             var inventory2 = new Inventory()
             {
+                User = userBob,
                 Counted = true,
                 Followed = true,
                 Location = "Box #2",

@@ -24,6 +24,7 @@ namespace Drette.Tender.Shared.Models
         [EmailAddress]
         public string WebSite { get; set; }
 
+
         public ICollection<Product> Products { get; set; }
 
 

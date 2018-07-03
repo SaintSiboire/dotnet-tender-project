@@ -2,7 +2,7 @@
     @using Drette.Tender.Shared.Models
 
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "Produits";
 }
 
 @Html.Partial("_Message")
@@ -20,6 +20,11 @@
 
 <h2>@ViewBag.Title</h2>
 
+<div class="pull-right">
+    <a href="@Url.Action("Add")" class="btn btn-primary btn-md">
+        <span class="glyphicon glyphicon-plus"></span> Ajouter un produit
+    </a>
+</div>
 
 @if (Model.Products.Count > 0)
 {
