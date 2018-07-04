@@ -13,7 +13,10 @@ namespace Drette.Tender.ViewModels
         public int ProductTypeId { get; set; }
         public int SupplierId { get; set; }
 
-
+        public ProductsAddViewModel()
+        {
+            //Product.Date = new DateTime(,,);
+        }
 
     }
     

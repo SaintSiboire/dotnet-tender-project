@@ -8,6 +8,11 @@ namespace Drette.Tender.Shared.Models
     public class Inventory
     {
 
+        public Inventory()
+        {
+            InventoryInputs = new List<InventoryInput>();
+            InventoryOutputs = new List<InventoryOutput>();
+        }
 
         public int Id { get; set; }
         public bool Counted { get; set; }
@@ -21,14 +26,15 @@ namespace Drette.Tender.Shared.Models
         public string LocationPrecision { get; set; }
         public string Notes { get; set; }
 
-        public int UnitId { get; set; }
 
         public string UserId { get; set; }
         public User User { get; set; }
 
+        public int UnitId { get; set; }
         public Unit Unit { get; set; }
 
-
+        public ICollection<InventoryInput> InventoryInputs { get; set; }
+        public ICollection<InventoryOutput> InventoryOutputs { get; set; }
 
 
     }

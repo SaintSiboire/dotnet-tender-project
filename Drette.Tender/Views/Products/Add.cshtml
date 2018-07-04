@@ -10,32 +10,11 @@
 {
     @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
-    <h3>Détails du produit</h3>
+    
 
     @Html.Partial("_ProductForm")
 
-    <h3>Type et fournisseur</h3>
-
-    <p>
-        Sélectionnez un type de produit et un fournisseur pour le produit.
-    </p>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                @Html.LabelFor(m => m.ProductTypeId, new { @class = "control-label" })
-                @Html.DropDownListFor(m => m.ProductTypeId,
-                    Model.ProductTypesSelectListItems, "", new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                @Html.LabelFor(m => m.SupplierId, new { @class = "control-label" })
-                @Html.DropDownListFor(m => m.SupplierId,
-                    Model.SuppliersSelectListItems, "", new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
+   
 
     <div class="row">
         <div class="col-md-12">

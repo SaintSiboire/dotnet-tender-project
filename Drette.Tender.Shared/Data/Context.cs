@@ -17,6 +17,8 @@ namespace Drette.Tender.Shared.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<InventoryInput> InventoryInputs { get; set; }
+        public DbSet<InventoryOutput> InventoryOutputs { get; set; }
 
         public Context()
             :base("Context")

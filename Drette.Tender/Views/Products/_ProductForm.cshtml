@@ -1,8 +1,11 @@
 ﻿@model Drette.Tender.ViewModels.ProductsBaseViewModel
 
+
 <div class="row">
 
     <div class="col-md-6">
+
+        <h3>Détails du produit</h3>
 
         <div class="form-group">
             @Html.LabelFor(m => m.Product.Name, new { @class = "control-label" })
@@ -23,18 +26,69 @@
 
         <div class="form-group">
             @Html.LabelFor(m => m.Product.ProductCode, new { @class = "control-label" })
-            @Html.TextBoxFor(m => m.Product.ProductCode, new { @class = "form-control datepicker" })
+            @Html.TextBoxFor(m => m.Product.ProductCode, new { @class = "form-control" })
         </div>
-
-    </div>
-
-    <div class="col-md-6">
 
         <div class="form-group">
             @Html.LabelFor(m => m.Product.Description, new { @class = "control-label" })
             @Html.TextAreaFor(m => m.Product.Description, 14, 20, new { @class = "form-control" })
         </div>
-   
+
+    </div>
+
+
+
+    <div class="col-md-6">
+
+        <h3>Détails de l'inventaire</h3>
+
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.Inventory.Counted) @Html.DisplayNameFor(m => m.Inventory.Counted)
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.Inventory.Followed) @Html.DisplayNameFor(m => m.Inventory.Followed)
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.UnitMaxQty, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Inventory.UnitMaxQty, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.UnitMinQty, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Inventory.UnitMinQty, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.UnitId, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.Inventory.UnitId,
+            Model.UnitsSelectListItems, "", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.Location, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Inventory.Location, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.LocationPrecision, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Inventory.LocationPrecision, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.Notes, new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Inventory.Notes, 14, 20, new { @class = "form-control" })
+        </div>
+
     </div>
 
 </div>

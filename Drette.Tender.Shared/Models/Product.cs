@@ -22,6 +22,7 @@ namespace Drette.Tender.Shared.Models
         [Display(Name = "Coût")]
         public decimal Cost { get; set; }
         public string Notes { get; set; }
+        //public DateTime Date { get; set; }
 
         [Display(Name = "Type")]
         public int ProductTypeId { get; set; }

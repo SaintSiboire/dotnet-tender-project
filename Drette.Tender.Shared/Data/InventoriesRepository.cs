@@ -32,6 +32,21 @@ namespace Drette.Tender.Shared.Data
                         .SingleOrDefault(); 
         }
 
+        public Inventory GetLast(string userId, bool includeRelatedEntoties = true)
+        {
+            var inventory = Context.Inventories.AsQueryable();
+
+            if(includeRelatedEntoties)
+            {
+                inventory = inventory
+                    .Include(i => i.Unit);
+            }
+
+            return inventory
+                .OrderByDescending(i => i.Id)
+                .Where(i => i.UserId == userId)
+                .FirstOrDefault();
+        }
 
 
         public override IList<Inventory> GetList(string userId)

@@ -89,11 +89,22 @@ namespace Drette.Tender.Controllers
         [HttpPost]
         public ActionResult Add(ProductsAddViewModel viewModel)
         {
-            ValidateProduct(viewModel.Product);
+           // ValidateProduct(viewModel.Product);
 
             if(ModelState.IsValid)
             {
                 var product = viewModel.Product;
+                var inventory = viewModel.Inventory;
+                product.UserId = User.Identity.GetUserId();
+                inventory.UserId = User.Identity.GetUserId();
+
+                _inventoriesRepository.Add(inventory);
+                var inventoryId = _inventoriesRepository.GetLast(inventory.UserId, includeRelatedEntoties: true).Id;
+
+                product.InventoryId = inventoryId;
+
+                _productsRepository.Add(product);
+
 
                 TempData["Message"] = "Votre produit a été ajouté a la liste.";
 
