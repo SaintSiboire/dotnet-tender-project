@@ -133,6 +133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\InventoryInputsViewModel.cs" />
     <Compile Include="ViewModels\ProductsAddViewModel.cs" />
     <Compile Include="ViewModels\ProductsBaseViewModel.cs" />
     <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
@@ -198,6 +199,7 @@
     <Content Include="Views\Products\Detail.cshtml" />
     <Content Include="Views\Products\Add.cshtml" />
     <Content Include="Views\Products\_ProductForm.cshtml" />
+    <Content Include="Views\Inventories\Input.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

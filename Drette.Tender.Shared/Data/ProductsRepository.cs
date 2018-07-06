@@ -32,6 +32,18 @@ namespace Drette.Tender.Shared.Data
                     .SingleOrDefault();
         }
 
+        public Product GetByProductCode(string productCode)
+        {
+            var product = Context.Products.AsQueryable();
+
+            return product
+                .Include(p => p.Inventory)
+                .Include(p => p.Supplier)
+                .Include(p => p.ProductType)
+                .Where(p => p.ProductCode == productCode)
+                .SingleOrDefault();                
+        }
+
         public override IList<Product> GetList(string userId)
         {
             return Context.Products
@@ -40,6 +52,16 @@ namespace Drette.Tender.Shared.Data
                         .Include(p => p.ProductType)
                         .Where(p => p.UserId == userId)
                         .OrderBy(p => p.InventoryId)
+                        .ToList();
+        }
+
+        public IList<Product> GetAll()
+        {
+            return Context.Products
+                        .Include(p => p.Inventory)
+                        .Include(p => p.Supplier)
+                        .Include(p => p.ProductType)
+                        .OrderBy(p => p.ProductCode)
                         .ToList();
         }
     }

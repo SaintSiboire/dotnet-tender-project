@@ -17,6 +17,8 @@ namespace Drette.Tender.Shared.Models
         public int Id { get; set; }
         public bool Counted { get; set; }
         public bool Followed { get; set; }
+        public decimal TotalCost { get; set; }
+        public decimal AverageCost { get; set; }
         public int UnitQty { get; set; }
         public int UnitQtyByLot { get; set; }
         public int UnitMinQty { get; set; }

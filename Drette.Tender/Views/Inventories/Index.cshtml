@@ -13,12 +13,15 @@
             <th>Id</th>
             <th>Compté</th>
             <th>Suivi</th>
+            <th>En inventaire</th>
             <th>Min</th>
             <th>Max</th>
-            <th>En inventaire</th>
+            <th>Coût total</th>
+            <th>Coût unitaire</th>
             <th>Type d'unité</th>
-            <th>Quantité/unité</th>
+            <th>Qté./unité</th>
             <th>Emplacement</th>
+
 
             <th>&nbsp;</th>
         </tr>
@@ -30,12 +33,15 @@
             <td>@inventory.Id</td>
             <td>@inventory.Counted</td>
             <td>@inventory.Followed</td>
+            <td>@inventory.UnitQty</td>
             <td>@inventory.UnitMinQty</td>
             <td>@inventory.UnitMaxQty</td>
-            <td>@inventory.UnitQty</td>
+            <td>@inventory.TotalCost</td>
+            <td>@inventory.AverageCost</td>
             <td>@inventory.Unit.Name</td>
             <td>@inventory.UnitQtyByLot</td>
             <td>@inventory.Location</td>
+
 
             <td>
                 <div class="pull-right">

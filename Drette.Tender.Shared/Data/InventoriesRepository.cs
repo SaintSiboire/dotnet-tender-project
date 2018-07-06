@@ -48,6 +48,17 @@ namespace Drette.Tender.Shared.Data
                 .FirstOrDefault();
         }
 
+        public Inventory GetById(int id)
+        {
+            var inventory = Context.Inventories.AsQueryable();
+
+
+            return inventory
+                .Include(i => i.Unit)
+                .Where(i => i.Id == id)
+                .SingleOrDefault();
+        }
+
 
         public override IList<Inventory> GetList(string userId)
         {
@@ -58,6 +69,13 @@ namespace Drette.Tender.Shared.Data
                         .ToList();
         }
 
+        public IList<Inventory> GetAll()
+        {
+            return Context.Inventories
+                        .Include(i => i.Unit)
+                        .OrderBy(i => i.Id)
+                        .ToList();
+        }
 
     }
 }

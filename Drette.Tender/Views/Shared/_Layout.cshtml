@@ -36,10 +36,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Products" ? "active" : "")">@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Inventories" ? "active" : "")">@Html.ActionLink("Inventories", "Index", "Inventories")</li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Suppliers" ? "active" : "")">@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
-                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Projects" ? "active" : "")">@Html.ActionLink("Projects", "Index", "Projects")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Products" ? "active" : "")">@Html.ActionLink("Produits", "Index", "Products")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Inventories" ? "active" : "")">@Html.ActionLink("Inventaires", "Index", "Inventories")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Suppliers" ? "active" : "")">@Html.ActionLink("Fournisseurs", "Index", "Suppliers")</li>
                 </ul>
             </div>
         </div>

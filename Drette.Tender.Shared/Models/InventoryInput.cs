@@ -9,10 +9,13 @@ namespace Drette.Tender.Shared.Models
     public class InventoryInput
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
+        //public DateTime Date { get; set; }
+        public decimal Cost { get; set; }
+        public int Quantity { get; set; }
 
         public int InventoryId { get; set; }
         public Inventory Inventory { get; set; }
+
 
         public string UserId { get; set; }
         public User User { get; set; }

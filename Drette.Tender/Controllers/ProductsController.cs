@@ -19,19 +19,22 @@ namespace Drette.Tender.Controllers
         private SuppliersRepository _suppliersRepository = null;
         private ProductTypesRepository _productTypesRepository = null;
         private UnitsRepository _unitsRepository = null;
+        private InventoryInputsRepository _inventoryInputsRepository = null;
 
 
         public ProductsController(ProductsRepository productsRepository,
             InventoriesRepository inventoriesRepository,
             SuppliersRepository suppliersRepository,
             ProductTypesRepository productTypesRepository,
-            UnitsRepository unitsRepository)
+            UnitsRepository unitsRepository,
+            InventoryInputsRepository inventoryInputsRepository)
         {
             _productsRepository = productsRepository;
             _inventoriesRepository = inventoriesRepository;
             _productTypesRepository = productTypesRepository;
             _suppliersRepository = suppliersRepository;
             _unitsRepository = unitsRepository;
+            _inventoryInputsRepository = inventoryInputsRepository;
         }
 
         public ActionResult Index()

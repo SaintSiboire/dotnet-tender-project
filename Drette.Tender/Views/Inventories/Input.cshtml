@@ -1,0 +1,44 @@
+﻿@model Drette.Tender.ViewModels.InventoryInputsViewModel
+
+@{
+    ViewBag.Title = "Entrée d'inventaire";
+}
+
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Product.ProductCode, new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.Product.ProductCode,
+        Model.ProductsSelectListItems, "", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.InventoryInput.Cost, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.InventoryInput.Cost, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.InventoryInput.Quantity, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.InventoryInput.Quantity, new { @class = "form-control" })
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pad-top">
+                <button type="submit" class="btn btn-success btn-lg margin-right">
+                    <span class="glyphicon glyphicon-save"></span> Save
+                </button>
+                <a href="@Url.Action("Index")" class="btn btn-warning btn-lg">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+}
