@@ -39,6 +39,10 @@ namespace Drette.Tender.Shared.Data
             //modelBuilder.Entity<Inventory>()
             //    .Property(i => i.Price)
             //    .HasPrecision(5, 2);
+
+            modelBuilder.Entity<InventoryInput>()
+            .Property(i => i.Date)
+            .HasColumnType("datetime2");
         }
     }
 }

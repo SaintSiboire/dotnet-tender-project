@@ -1,7 +1,7 @@
-﻿@model Drette.Tender.ViewModels.InventoryInputsViewModel
+﻿@model Drette.Tender.ViewModels.InventoryOutputsViewModel
 
 @{
-    ViewBag.Title = "Entrée d'inventaire";
+    ViewBag.Title = "Sortie d'inventaire";
 }
 
 }
@@ -19,13 +19,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.InventoryInput.Quantity, new { @class = "control-label" })
-        @Html.TextBoxFor(m => m.InventoryInput.Quantity, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.InventoryInput.Cost, new { @class = "control-label" })
-        @Html.TextBoxFor(m => m.InventoryInput.Cost, new { @class = "form-control" })
+        @Html.LabelFor(m => m.InventoryOutput.Quantity, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.InventoryOutput.Quantity, new { @class = "form-control" })
     </div>
 
 

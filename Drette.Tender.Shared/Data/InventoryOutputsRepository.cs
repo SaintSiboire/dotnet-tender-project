@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Drette.Tender.Shared.Data
 {
-    public class InventoryInputsRepository : BaseRepository<InventoryInput>
+    public class InventoryOutputsRepository : BaseRepository<InventoryOutput>
     {
-        public InventoryInputsRepository(Context context)
+        public InventoryOutputsRepository(Context context)
             :base(context)
         {}
 
-        public override InventoryInput Get(int id, string userId, bool includeRelatedEntities = true)
+        public override InventoryOutput Get(int id, string userId, bool includeRelatedEntities = true)
         {
-            var input = Context.InventoryInputs.AsQueryable();
+            var input = Context.InventoryOutputs.AsQueryable();
 
-            if(includeRelatedEntities)
+            if (includeRelatedEntities)
             {
                 input = input
                     .Include(i => i.Inventory);
@@ -29,9 +29,9 @@ namespace Drette.Tender.Shared.Data
                 .SingleOrDefault();
         }
 
-        public override IList<InventoryInput> GetList(string userId)
+        public override IList<InventoryOutput> GetList(string userId)
         {
-            var inputs = Context.InventoryInputs.AsQueryable();
+            var inputs = Context.InventoryOutputs.AsQueryable();
 
             return inputs
                 .OrderBy(i => i.Id)
@@ -39,16 +39,14 @@ namespace Drette.Tender.Shared.Data
                 .ToList();
         }
 
-        public IList<InventoryInput> GetListByInventory(int id)
+        public IList<InventoryOutput> GetListByInventory(int id)
         {
-            var inputs = Context.InventoryInputs.AsQueryable();
+            var inputs = Context.InventoryOutputs.AsQueryable();
 
             return inputs
                 .OrderByDescending(i => i.Id)
                 .Where(i => i.InventoryId == id)
                 .ToList();
         }
-
-
     }
 }

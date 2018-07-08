@@ -9,7 +9,7 @@ namespace Drette.Tender.Shared.Models
     public class InventoryInput
     {
         public int Id { get; set; }
-        //public DateTime Date { get; set; }
+        public DateTime Date { get; set; }
         public decimal Cost { get; set; }
         public int Quantity { get; set; }
 

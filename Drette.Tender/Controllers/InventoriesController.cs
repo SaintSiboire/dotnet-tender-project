@@ -17,14 +17,18 @@ namespace Drette.Tender.Controllers
 
         private InventoryInputsRepository _inventoryInputsRepository = null;
 
+        private InventoryOutputsRepository _inventoryOutputsRepository = null;
+
         private ProductsRepository _productsRepository = null;
 
+
         public InventoriesController(InventoriesRepository inventoriesRepository, InventoryInputsRepository inventoryInputsRepository,
-                                        ProductsRepository productsRepository)
+                                        ProductsRepository productsRepository, InventoryOutputsRepository inventoryOutputsRepository)
         {
             _inventoriesRepository = inventoriesRepository;
             _inventoryInputsRepository = inventoryInputsRepository;
             _productsRepository = productsRepository;
+            _inventoryOutputsRepository = inventoryOutputsRepository;
         }
 
         public ActionResult Index()
@@ -71,13 +75,50 @@ namespace Drette.Tender.Controllers
 
                 IList<InventoryInput> inventoryInputs = _inventoryInputsRepository.GetListByInventory(inventoryId);
 
-
-
-
-
-
-
                 TempData["Message"] = "Votre entrée a été ajouté a l'inventaire.";
+
+                return RedirectToAction("Index");
+            }
+
+            viewModel.Init(_productsRepository);
+
+            return View(viewModel);
+        }
+
+        public ActionResult Output()
+        {
+            var viewModel = new InventoryOutputsViewModel();
+
+            viewModel.InventoryOutput.UserId = User.Identity.GetUserId();
+
+            viewModel.Init(_productsRepository);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Output(InventoryOutputsViewModel viewModel)
+        {
+            // ValidateProduct(viewModel.Product);
+
+            if (ModelState.IsValid)
+            {
+                var output = viewModel.InventoryOutput;
+                var productCode = viewModel.Product.ProductCode;
+                var product = _productsRepository.GetByProductCode(productCode);
+                var inventoryId = product.Inventory.Id;
+
+                var inventory = _inventoriesRepository.GetById(inventoryId);
+                inventory.UnitQty -= output.Quantity;
+                inventory.TotalCost -= output.Quantity * inventory.AverageCost;
+                inventory.AverageCost = inventory.TotalCost / inventory.UnitQty;
+
+                output.InventoryId = inventoryId;
+                output.UserId = User.Identity.GetUserId();
+
+                _inventoryOutputsRepository.Add(output);
+
+                TempData["Message"] = "Votre entrée a été retiré de l'inventaire.";
 
                 return RedirectToAction("Index");
             }

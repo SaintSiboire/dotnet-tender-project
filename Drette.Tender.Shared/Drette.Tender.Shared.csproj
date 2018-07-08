@@ -83,6 +83,7 @@
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\InventoryInputsRepository.cs" />
+    <Compile Include="Data\InventoryOutputsRepository.cs" />
     <Compile Include="Data\ProductsRepository.cs" />
     <Compile Include="Data\ProductTypesRepository.cs" />
     <Compile Include="Data\SuppliersRepository.cs" />

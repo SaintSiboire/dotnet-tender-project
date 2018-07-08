@@ -20,10 +20,11 @@ namespace Drette.Tender.ViewModels
 
         public List<Product> Products { get; set; }
 
-        public int Quantity { get; set; }
 
-        public decimal Cost { get; set; }
-
+        public InventoryInputsViewModel()
+        {
+            InventoryInput.Date = DateTime.Now;
+        }
 
 
 
