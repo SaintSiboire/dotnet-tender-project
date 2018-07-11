@@ -15,19 +15,24 @@ namespace Drette.Tender.Shared.Models
 
 
         public int Id { get; set; }
+
+        [Display(Name = "Nom de produit")]
         public string Name { get; set; }
+
         [Display(Name = "Code du produit")]
         public string ProductCode { get; set; }
-        public string Description { get; set; }
-        [Display(Name = "Coût")]
-        public decimal Cost { get; set; }
-        public string Notes { get; set; }
-        //public DateTime Date { get; set; }
 
-        [Display(Name = "Type")]
+        public string Description { get; set; }
+
+        public string Notes { get; set; }
+
+        [Display(Name = "Date d'ajout du produit")]
+        public DateTime Date { get; set; }
+
+        [Display(Name = "Type de produit")]
         public int ProductTypeId { get; set; }
 
-        [Display(Name = "Inventaire")]
+        [Display(Name = "Numéro d'inventaire")]
         public int InventoryId { get; set; }
 
         [Display(Name = "Distributeur")]
@@ -35,6 +40,7 @@ namespace Drette.Tender.Shared.Models
         public string SupplierProductCode { get; set; }
 
         public string UserId { get; set; }
+        [Display(Name = "Responsable de l'ajout")]
         public User User { get; set; }
 
         public ProductType ProductType { get; set; }

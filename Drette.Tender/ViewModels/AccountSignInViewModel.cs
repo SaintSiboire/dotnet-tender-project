@@ -8,6 +8,7 @@ namespace Drette.Tender.ViewModels
 {
     public class AccountSignInViewModel
     {
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }

@@ -15,7 +15,7 @@ namespace Drette.Tender.ViewModels
 
         public ProductsAddViewModel()
         {
-            //Product.Date = new DateTime(,,);
+            Product.Date = DateTime.Now;
         }
 
     }

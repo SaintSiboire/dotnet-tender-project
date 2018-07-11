@@ -35,7 +35,7 @@ namespace Drette.Tender.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            IList<Inventory> inventories = _inventoriesRepository.GetList(userId);
+            IList<Inventory> inventories = _inventoriesRepository.GetAll();
 
             return View(inventories);
         }

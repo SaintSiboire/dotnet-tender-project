@@ -41,13 +41,18 @@ namespace Drette.Tender.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            IList<Product> products = _productsRepository.GetList(userId);
+            IList<Product> products = _productsRepository.GetAll();
+
+            IList<Inventory> inventories = _inventoriesRepository.GetAll();
 
             int totalProduct = products
                 .Count();
 
-            decimal totalValue = products
-                .Sum(p => p.Cost);
+
+            decimal totalValue = inventories
+                .Sum(i => i.TotalCost);
+
+            
 
             var viewModel = new ProductsIndexViewModel()
             {

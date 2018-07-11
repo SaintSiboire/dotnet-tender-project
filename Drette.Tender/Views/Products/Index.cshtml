@@ -31,13 +31,14 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
                 <th>SKU</th>
+                <th class="text-center">Nom</th>
                 <th>Fournisseur</th>
                 <th>Numéro d'inventaire</th>
                 <th>Quantité en inventaire</th>
-                <th>Coût</th>
+                <th>Coût unitaire</th>
+                <th>Date d'ajout du produit</th>
+                <th>Entrée par</th>
 
                 <th>&nbsp;</th>
             </tr>
@@ -46,13 +47,14 @@
             @foreach (var product in Model.Products)
             {
             <tr>
-                <td>@product.InventoryId</td>
-                <td>@product.Name</td>
                 <td>@product.ProductCode</td>
+                <td class="text-center">@product.Name</td>
                 <td>@product.Supplier.Name</td>
-                <td>@product.InventoryId</td>
-                <td>@product.Inventory.UnitQty</td>
-                <td>@product.Inventory.AverageCost</td>
+                <td class="text-center">@product.InventoryId</td>
+                <td class="text-center">@product.Inventory.UnitQty</td>
+                <td class="text-center">@product.Inventory.AverageCost</td>
+                <td>@product.Date</td>
+                <td>@User.Identity.Name</td>
 
                 <td>
                     <div class="pull-right">

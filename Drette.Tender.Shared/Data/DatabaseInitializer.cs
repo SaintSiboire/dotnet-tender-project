@@ -33,8 +33,8 @@ namespace Drette.Tender.Shared.Data
 
             var userPet = new User
             {
-                UserName = "pet@gmail.com",
-                Email = "pet@gmail.com"
+                UserName = "Jim@gmail.com",
+                Email = "Jim@gmail.com"
             };
 
             userManager.Create(userPet, "qwerty");
@@ -65,7 +65,7 @@ namespace Drette.Tender.Shared.Data
                 UnitQty = 0,
                 UnitMinQty = 10,
                 UnitMaxQty = 50,
-                UnitQtyByLot = 4,
+                UnitQtyByLot = 1,
                 OrderMinQty = 1
             };
             context.Inventories.Add(inventory1);
@@ -82,7 +82,7 @@ namespace Drette.Tender.Shared.Data
                 UnitQty = 0,
                 UnitMinQty = 13,
                 UnitMaxQty = 55,
-                UnitQtyByLot = 5,
+                UnitQtyByLot = 1,
                 OrderMinQty = 1
             };
             context.Inventories.Add(inventory2);
@@ -100,7 +100,7 @@ namespace Drette.Tender.Shared.Data
                 Inventory = inventory1,
                 Supplier = supplier1,
                 SupplierProductCode = "21",
-                Cost = 0
+                Date = DateTime.Now
             };
             var product2 = new Product()
             {
@@ -112,7 +112,7 @@ namespace Drette.Tender.Shared.Data
                 Inventory = inventory2,
                 Supplier = supplier2,
                 SupplierProductCode = "5",
-                Cost = 0
+                Date = DateTime.Now
             };
 
 
