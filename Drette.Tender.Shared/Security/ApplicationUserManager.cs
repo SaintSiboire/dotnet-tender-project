@@ -13,7 +13,7 @@ namespace Drette.Tender.Shared.Security
         public ApplicationUserManager(IUserStore<User> userStore)
             :base(userStore)
         {
-
+            
         }
     }
 }

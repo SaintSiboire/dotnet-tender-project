@@ -40,6 +40,25 @@ namespace Drette.Tender.Controllers
             return View(inventories);
         }
 
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userId = User.Identity.GetUserId();
+
+            Inventory inventory = _inventoriesRepository.GetById((int)id);
+
+            if (inventory == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(inventory);
+        }
+
         public ActionResult Input()
         {
             var viewModel = new InventoryInputsViewModel();

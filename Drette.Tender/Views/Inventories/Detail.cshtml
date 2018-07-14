@@ -1,94 +1,121 @@
-﻿@model Drette.Tender.Shared.Models.Product
-    @using Drette.Tender.Shared.Models
+﻿@model Drette.Tender.Shared.Models.Inventory
+@using Drette.Tender.Shared.Models
 @{
     /**/
 
-    ViewBag.Title = "Détail du produit";
+    ViewBag.Title = "Détail de l'inventaire";
 }
 @Html.Partial("_Message")
-<h2 class="pad-top">Détail du produit</h2>
+<h2 class="pad-top">Détail de l'inventaire</h2>
 
 <div class="row">
     <div class="col-md-6">
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.InventoryId)
+                @Html.LabelFor(m => m.Id)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Inventory.Id
+                @Model.Id
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Name)
+                @Html.LabelFor(m => m.Counted)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Name
+                @Model.Counted
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.ProductCode)
+                @Html.LabelFor(m => m.Followed)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.ProductCode
+                @Model.Followed
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Description)
+                @Html.LabelFor(m => m.TotalCost)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Description
+                @Model.TotalCost
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.ProductTypeId)
+                @Html.LabelFor(m => m.AverageCost)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.ProductType.Name
+                @Model.AverageCost
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.SupplierId)
+                @Html.LabelFor(m => m.UnitQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Supplier.Name
+                @Model.UnitQty
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Inventory.AverageCost)
+                @Html.LabelFor(m => m.UnitQtyByLot)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Inventory.AverageCost
+                @Model.UnitQtyByLot
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Date)
+                @Html.LabelFor(m => m.UnitMaxQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Date
+                @Model.UnitMaxQty
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.User)
+                @Html.LabelFor(m => m.UnitMinQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @User.Identity.Name
+                @Model.UnitMinQty
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(m => m.OrderMinQty)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.OrderMinQty
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(m => m.Location)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.Location
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4">
+                @Html.LabelFor(m => m.LocationPrecision)
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                @Model.LocationPrecision
             </div>
         </div>
 
@@ -113,9 +140,7 @@
         <span class="glyphicon glyphicon-edit"></span> Modifier
     </a>
 
-    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger btn-sm margin-right">
-        <span class="glyphicon glyphicon-trash"></span> Effacer
-    </a>
+
 
     <a href="@Url.Action("Index")" class="btn btn-warning btn-sm">
         <span class="glyphicon glyphicon-step-backward"></span> Retour
