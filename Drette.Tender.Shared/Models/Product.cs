@@ -29,8 +29,6 @@ namespace Drette.Tender.Shared.Models
         [Display(Name = "Date d'ajout du produit")]
         public DateTime Date { get; set; }
 
-        [Display(Name = "Date de modification")]
-        public DateTime ModificationDate { get; set; }
 
         [Display(Name = "Type de produit")]
         public int ProductTypeId { get; set; }

@@ -35,9 +35,9 @@ namespace Drette.Tender.Shared.Data
 
             // Using the fluent API to configure entity properties...
 
-            //modelBuilder.Entity<Product>()
-            //    .Property(i => i.Price)
-            //    .HasPrecision(5, 2);
+            modelBuilder.Entity<Product>()
+                .Property(i => i.ModificationDate)
+                .HasColumnType("datetime2");
 
             modelBuilder.Entity<InventoryInput>()
             .Property(i => i.Date)
