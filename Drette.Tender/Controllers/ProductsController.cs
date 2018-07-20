@@ -124,6 +124,53 @@ namespace Drette.Tender.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Edit(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userId = User.Identity.GetUserId();
+
+            var product = _productsRepository.Get((int)id, userId, includeRelatedEntities: true);
+
+            if(product == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new ProductsEditViewModel()
+            {
+                Product = product
+            };
+
+            viewModel.Init(_productTypesRepository, _suppliersRepository, _unitsRepository, User.Identity.GetUserId());
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ProductsEditViewModel viewModel)
+        {
+            //ValidateProduct(viewModel.Product);
+
+            if(ModelState.IsValid)
+            {
+                var product = viewModel.Product;
+
+                _productsRepository.Update(product);
+
+                TempData["Message"] = "Votre produit a été modifié correctement.";
+
+                return RedirectToAction("Detail", new { id = product.Id });
+            }
+
+            viewModel.Init(_productTypesRepository, _suppliersRepository, _unitsRepository, User.Identity.GetUserId());
+
+            return View(viewModel);
+        }
+
         private void ValidateProduct(Product product)
         {
             throw new NotImplementedException();

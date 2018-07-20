@@ -35,8 +35,7 @@ namespace Drette.Tender.Shared.Data
 
             // Using the fluent API to configure entity properties...
 
-            // Configure the precision and scale for the Inventory.Price property.
-            //modelBuilder.Entity<Inventory>()
+            //modelBuilder.Entity<Product>()
             //    .Property(i => i.Price)
             //    .HasPrecision(5, 2);
 

@@ -137,6 +137,7 @@
     <Compile Include="ViewModels\InventoryOutputsViewModel.cs" />
     <Compile Include="ViewModels\ProductsAddViewModel.cs" />
     <Compile Include="ViewModels\ProductsBaseViewModel.cs" />
+    <Compile Include="ViewModels\ProductsEditViewModel.cs" />
     <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\site.css" />
@@ -203,6 +204,8 @@
     <Content Include="Views\Inventories\Input.cshtml" />
     <Content Include="Views\Inventories\Output.cshtml" />
     <Content Include="Views\Inventories\Detail.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\_ProductEditForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,51 @@
+﻿@model Drette.Tender.ViewModels.ProductsBaseViewModel
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <h3>Détails du produit</h3>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.ProductTypeId, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.Product.ProductTypeId,
+            Model.ProductTypesSelectListItems, "", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.SupplierId, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.Product.SupplierId,
+            Model.SuppliersSelectListItems, "", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.SupplierProductCode, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Product.SupplierProductCode, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.ProductCode, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Product.ProductCode, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.Description, new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Product.Description, 14, 20, new { @class = "form-control" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Product.Notes, new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Product.Notes, 14, 20, new { @class = "form-control" })
+        </div>
+
+
+    </div>
+
+</div>
