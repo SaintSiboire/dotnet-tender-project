@@ -45,6 +45,11 @@
             @Html.TextAreaFor(m => m.Product.Notes, 14, 20, new { @class = "form-control" })
         </div>
 
+        <div class="form-group hidden">
+            @Html.LabelFor(m => m.Product.UserId, new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Product.UserId, new { @class = "form-control" })
+        </div>
+
 
     </div>
 
@@ -100,6 +105,12 @@
             @Html.LabelFor(m => m.Inventory.Notes, new { @class = "control-label" })
             @Html.TextAreaFor(m => m.Inventory.Notes, 14, 20, new { @class = "form-control" })
         </div>
+
+        <div class="form-group hidden">
+            @Html.LabelFor(m => m.Inventory.UserId, new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Inventory.UserId, new { @class = "form-control" })
+        </div>
+
 
     </div>
 

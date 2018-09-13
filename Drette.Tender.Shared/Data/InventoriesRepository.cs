@@ -32,7 +32,7 @@ namespace Drette.Tender.Shared.Data
                         .SingleOrDefault(); 
         }
 
-        public Inventory GetLast(string userId, bool includeRelatedEntoties = true)
+        public Inventory GetLast( bool includeRelatedEntoties = true)
         {
             var inventory = Context.Inventories.AsQueryable();
 
@@ -44,7 +44,6 @@ namespace Drette.Tender.Shared.Data
 
             return inventory
                 .OrderByDescending(i => i.Id)
-                .Where(i => i.UserId == userId)
                 .FirstOrDefault();
         }
 

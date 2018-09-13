@@ -20,6 +20,7 @@ namespace Drette.Tender.Controllers
         private ProductTypesRepository _productTypesRepository = null;
         private UnitsRepository _unitsRepository = null;
         private InventoryInputsRepository _inventoryInputsRepository = null;
+        private ProductModificationsRepository _productModificationsRepository = null;
 
 
         public ProductsController(ProductsRepository productsRepository,
@@ -27,7 +28,8 @@ namespace Drette.Tender.Controllers
             SuppliersRepository suppliersRepository,
             ProductTypesRepository productTypesRepository,
             UnitsRepository unitsRepository,
-            InventoryInputsRepository inventoryInputsRepository)
+            InventoryInputsRepository inventoryInputsRepository,
+            ProductModificationsRepository productModificationsRepository)
         {
             _productsRepository = productsRepository;
             _inventoriesRepository = inventoriesRepository;
@@ -35,6 +37,7 @@ namespace Drette.Tender.Controllers
             _suppliersRepository = suppliersRepository;
             _unitsRepository = unitsRepository;
             _inventoryInputsRepository = inventoryInputsRepository;
+            _productModificationsRepository = productModificationsRepository;
         }
 
         public ActionResult Index()
@@ -73,7 +76,7 @@ namespace Drette.Tender.Controllers
 
             var userId = User.Identity.GetUserId();
 
-            Product product = _productsRepository.Get((int)id, userId, includeRelatedEntities : true);
+            Product product = _productsRepository.GetById((int)id);
 
             if(product == null)
             {
@@ -88,6 +91,9 @@ namespace Drette.Tender.Controllers
             var viewModel = new ProductsAddViewModel();
 
             viewModel.Product.UserId = User.Identity.GetUserId();
+            //viewModel.Product.User.UserName = User.Identity.GetUserName();
+            viewModel.Inventory.UserId = User.Identity.GetUserId();
+           // viewModel.Inventory.User.UserName = User.Identity.GetUserName();
 
             viewModel.Init(_productTypesRepository,  _suppliersRepository, _unitsRepository, User.Identity.GetUserId());
 
@@ -103,11 +109,10 @@ namespace Drette.Tender.Controllers
             {
                 var product = viewModel.Product;
                 var inventory = viewModel.Inventory;
-                product.UserId = User.Identity.GetUserId();
-                inventory.UserId = User.Identity.GetUserId();
+
 
                 _inventoriesRepository.Add(inventory);
-                var inventoryId = _inventoriesRepository.GetLast(inventory.UserId, includeRelatedEntoties: true).Id;
+                var inventoryId = _inventoriesRepository.GetLast( includeRelatedEntoties: true).Id;
 
                 product.InventoryId = inventoryId;
 
@@ -133,7 +138,8 @@ namespace Drette.Tender.Controllers
 
             var userId = User.Identity.GetUserId();
 
-            var product = _productsRepository.Get((int)id, userId, includeRelatedEntities: true);
+            var product = _productsRepository.GetById((int)id);
+
 
             if(product == null)
             {
@@ -158,8 +164,12 @@ namespace Drette.Tender.Controllers
             if(ModelState.IsValid)
             {
                 var product = viewModel.Product;
+                var modification = viewModel.ProductModification;
+                modification.ProductId = product.Id;
+                modification.UserId = User.Identity.GetUserId();
 
                 _productsRepository.Update(product);
+                _productModificationsRepository.Add(modification);
 
                 TempData["Message"] = "Votre produit a été modifié correctement.";
 

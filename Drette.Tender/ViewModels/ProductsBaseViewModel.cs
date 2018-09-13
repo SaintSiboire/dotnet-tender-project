@@ -21,12 +21,14 @@ namespace Drette.Tender.ViewModels
         public SelectList UnitsSelectListItems { get; set; }
 
 
+
+
         /// <summary>
         /// Initializes the view model.
         /// </summary>
         public void Init(ProductTypesRepository productTypesRepository,
             SuppliersRepository suppliersRepository,
-            UnitsRepository unitsRepository,
+            UnitsRepository unitsRepository,           
             string userId)
         {
             ProductTypesSelectListItems = new SelectList(

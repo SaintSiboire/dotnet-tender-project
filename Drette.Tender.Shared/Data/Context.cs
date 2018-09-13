@@ -19,6 +19,7 @@ namespace Drette.Tender.Shared.Data
         public DbSet<Unit> Units { get; set; }
         public DbSet<InventoryInput> InventoryInputs { get; set; }
         public DbSet<InventoryOutput> InventoryOutputs { get; set; }
+        public DbSet<ProductModification> ProductModifications { get; set; }
 
         public Context()
             :base("Context")
@@ -35,8 +36,12 @@ namespace Drette.Tender.Shared.Data
 
             // Using the fluent API to configure entity properties...
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<ProductModification>()
                 .Property(i => i.ModificationDate)
+                .HasColumnType("datetime2");
+
+            modelBuilder.Entity<Product>()
+                .Property(i => i.Date)
                 .HasColumnType("datetime2");
 
             modelBuilder.Entity<InventoryInput>()

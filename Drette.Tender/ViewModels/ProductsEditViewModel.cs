@@ -6,8 +6,7 @@ using System.Web;
 
 namespace Drette.Tender.ViewModels
 {
-    public class ProductsEditViewModel
-        : ProductsBaseViewModel
+    public class ProductsEditViewModel : ProductsBaseViewModel
     {
         public ProductModification ProductModification { get; set; } = new ProductModification();
 
@@ -20,6 +19,12 @@ namespace Drette.Tender.ViewModels
         {
             get { return Product.Id; }
             set { Product.Id = value; }
+        }
+
+        public int InventoryId
+        {
+            get { return Product.InventoryId; }
+            set { Product.InventoryId = value; }
         }
     }
 }
