@@ -21,14 +21,21 @@ namespace Drette.Tender.Controllers
 
         private ProductsRepository _productsRepository = null;
 
+        private ProductModificationsRepository _productModificationsRepository = null;
+
+        private UnitsRepository _unitsRepository = null;
+
 
         public InventoriesController(InventoriesRepository inventoriesRepository, InventoryInputsRepository inventoryInputsRepository,
-                                        ProductsRepository productsRepository, InventoryOutputsRepository inventoryOutputsRepository)
+                                        ProductsRepository productsRepository, InventoryOutputsRepository inventoryOutputsRepository, 
+                                        ProductModificationsRepository productModificationsRepository, UnitsRepository unitsRepository)
         {
             _inventoriesRepository = inventoriesRepository;
             _inventoryInputsRepository = inventoryInputsRepository;
             _productsRepository = productsRepository;
             _inventoryOutputsRepository = inventoryOutputsRepository;
+            _productModificationsRepository = productModificationsRepository;
+            _unitsRepository = unitsRepository;
         }
 
         public ActionResult Index()
@@ -146,6 +153,59 @@ namespace Drette.Tender.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userId = User.Identity.GetUserId();
+
+            var inventory = _inventoriesRepository.GetById((int)id);
+
+
+            if (inventory == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new InventoriesEditViewModel()
+            {
+                Inventory = inventory
+            };
+
+            viewModel.Init(_inventoriesRepository, _unitsRepository);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(InventoriesEditViewModel viewModel)
+        {
+            //ValidateProduct(viewModel.Product);
+
+            if (ModelState.IsValid)
+            {
+                var inventory = viewModel.Inventory;
+                //var modification = viewModel.ProductModification;
+               // modification.InventoryId = inventory.Id;
+                //modification.UserId = User.Identity.GetUserId();
+
+                _inventoriesRepository.Update(inventory);
+                //_productModificationsRepository.Add(modification);
+
+                TempData["Message"] = "Votre produit a été modifié correctement.";
+
+                return RedirectToAction("Detail", new { id = inventory.Id });
+            }
+
+            viewModel.Init(_inventoriesRepository, _unitsRepository);
+
+            return View(viewModel);
+        }
+
 
     }
 }

@@ -1,0 +1,108 @@
+﻿@model Drette.Tender.ViewModels.InventoriesEditViewModel
+
+@{
+    ViewBag.Title = "Modifier l'inventaire";
+}
+
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
+
+
+<div class="col-md-6">
+
+    <h3>Détails de l'inventaire</h3>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.Inventory.Counted) @Html.DisplayNameFor(m => m.Inventory.Counted)
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.Inventory.Followed) @Html.DisplayNameFor(m => m.Inventory.Followed)
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.UnitMaxQty, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Inventory.UnitMaxQty, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.UnitMinQty, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Inventory.UnitMinQty, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.UnitId, new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.Inventory.UnitId,
+        Model.UnitsSelectListItems, "", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.Location, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Inventory.Location, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.LocationPrecision, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Inventory.LocationPrecision, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Inventory.Notes, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.Notes, 14, 20, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group hidden">
+        @Html.LabelFor(m => m.Inventory.UserId, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.UserId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group hidden">
+        @Html.LabelFor(m => m.Inventory.TotalCost, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.TotalCost, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group hidden">
+        @Html.LabelFor(m => m.Inventory.AverageCost, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.AverageCost, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group hidden">
+        @Html.LabelFor(m => m.Inventory.UnitQty, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.UnitQty, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group hidden">
+        @Html.LabelFor(m => m.Inventory.UnitQtyByLot, new { @class = "control-label" })
+        @Html.TextAreaFor(m => m.Inventory.UnitQtyByLot, new { @class = "form-control" })
+    </div>
+
+
+</div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pad-top">
+                <button type="submit" class="btn btn-success btn-lg margin-right">
+                    <span class="glyphicon glyphicon-save"></span> Save
+                </button>
+                <a href="@Url.Action("Index")" class="btn btn-warning btn-lg">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+}
