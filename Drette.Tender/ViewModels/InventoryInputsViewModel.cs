@@ -20,6 +20,8 @@ namespace Drette.Tender.ViewModels
 
         public SelectList InventoriesSelectListItems { get; set; }
 
+        public SelectList UnitsSelectListItems { get; set; }
+
         public List<Product> Products { get; set; }
 
 

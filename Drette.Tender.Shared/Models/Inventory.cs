@@ -28,8 +28,6 @@ namespace Drette.Tender.Shared.Models
         public decimal AverageCost { get; set; }
         [Display(Name = "Nombre d'unité")]
         public int UnitQty { get; set; }
-        [Display(Name = "Quantité par unité")]
-        public int UnitQtyByLot { get; set; }
         [Display(Name = "Quantité minimum en inventaire")]
         public int UnitMinQty { get; set; }
         [Display(Name = "Quantité maximum en inventaire")]

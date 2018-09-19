@@ -15,6 +15,7 @@ namespace Drette.Tender.Shared.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int Quantity { get; set; }
 
         public ICollection<Inventory> Inventories { get; set; }
 

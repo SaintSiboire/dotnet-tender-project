@@ -39,7 +39,7 @@ namespace Drette.Tender.ViewModels
                "Id", "Name");
             UnitsSelectListItems = new SelectList(
                unitsRepository.GetList(),
-               "Id", "Name");
+               "Id", "Name", "Quantity");
 
         }
     }

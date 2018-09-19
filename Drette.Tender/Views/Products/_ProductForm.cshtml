@@ -92,6 +92,11 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(m => m.Inventory.Unit.Quantity, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Inventory.Unit.Quantity, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(m => m.Inventory.Location, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Inventory.Location, new { @class = "form-control" })
         </div>

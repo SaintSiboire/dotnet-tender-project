@@ -50,8 +50,19 @@ namespace Drette.Tender.Shared.Data
 
             context.Suppliers.AddRange(suppliers);
 
-            var unit1 = new Unit() { Name = "Unité" };
+            var unit1 = new Unit()
+            {
+                Name = "Unité",
+                Quantity = 1
+            };
             context.Units.Add(unit1);
+
+            var unit2 = new Unit()
+            {
+                Name = "Paquet",
+                Quantity = 2
+            };
+            context.Units.Add(unit2);
 
             var inventory1 = new Inventory()
             {
@@ -65,7 +76,6 @@ namespace Drette.Tender.Shared.Data
                 UnitQty = 0,
                 UnitMinQty = 10,
                 UnitMaxQty = 50,
-                UnitQtyByLot = 1,
                 OrderMinQty = 1
             };
             context.Inventories.Add(inventory1);
@@ -82,7 +92,6 @@ namespace Drette.Tender.Shared.Data
                 UnitQty = 0,
                 UnitMinQty = 13,
                 UnitMaxQty = 55,
-                UnitQtyByLot = 1,
                 OrderMinQty = 1
             };
             context.Inventories.Add(inventory2);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Drette.Tender.ViewModels
 {
@@ -12,7 +13,9 @@ namespace Drette.Tender.ViewModels
     {
         //public ProductModification ProductModification { get; set; } = new ProductModification();
 
-        public SelectList UnitsSelectListItems { get; set; }
+
+
+
 
         public InventoriesEditViewModel()
         {
