@@ -1,4 +1,4 @@
-﻿@model Drette.Tender.Shared.Models.Inventory
+﻿@model Drette.Tender.ViewModels.InventoriesBaseViewModel
 @using Drette.Tender.Shared.Models
 @{
     /**/
@@ -13,55 +13,55 @@
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Id)
+                @Html.LabelFor(m => m.Inventory.Id)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Id
+                @Model.Inventory.Id
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Counted)
+                @Html.LabelFor(m => m.Inventory.Counted)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Counted
+                @Model.Inventory.Counted
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Followed)
+                @Html.LabelFor(m => m.Inventory.Followed)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Followed
+                @Model.Inventory.Followed
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.TotalCost)
+                @Html.LabelFor(m => m.Inventory.TotalCost)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.TotalCost
+                @Model.Inventory.TotalCost
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.AverageCost)
+                @Html.LabelFor(m => m.Inventory.AverageCost)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.AverageCost
+                @Model.Inventory.AverageCost
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.UnitQty)
+                @Html.LabelFor(m => m.Inventory.UnitQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.UnitQty
+                @Model.Inventory.UnitQty
             </div>
         </div>
 
@@ -70,61 +70,61 @@
                 @Html.Label("Quantité par unité")
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Unit.Quantity
+                @Model.Inventory.Unit.Quantity
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.UnitMaxQty)
+                @Html.LabelFor(m => m.Inventory.UnitMaxQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.UnitMaxQty
+                @Model.Inventory.UnitMaxQty
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.UnitMinQty)
+                @Html.LabelFor(m => m.Inventory.UnitMinQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.UnitMinQty
+                @Model.Inventory.UnitMinQty
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.OrderMinQty)
+                @Html.LabelFor(m => m.Inventory.OrderMinQty)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.OrderMinQty
+                @Model.Inventory.OrderMinQty
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.Location)
+                @Html.LabelFor(m => m.Inventory.Location)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.Location
+                @Model.Inventory.Location
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.LocationPrecision)
+                @Html.LabelFor(m => m.Inventory.LocationPrecision)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.LocationPrecision
+                @Model.Inventory.LocationPrecision
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-4 col-sm-4">
-                @Html.LabelFor(m => m.UserId)
+                @Html.LabelFor(m => m.Inventory.UserId)
             </div>
             <div class="col-xs-8 col-sm-8">
-                @Model.UserId
+                @Model.Inventory.UserId
             </div>
         </div>
 
@@ -133,10 +133,10 @@
 
     <div class="col-md-6">
         <div>
-            @Html.LabelFor(m => m.Notes)
+            @Html.LabelFor(m => m.Inventory.Notes)
         </div>
         <div>
-            @(!string.IsNullOrWhiteSpace(Model.Notes) ? Model.Notes : "N/A")
+            @(!string.IsNullOrWhiteSpace(Model.Inventory.Notes) ? Model.Inventory.Notes : "N/A")
         </div>
     </div>
 
@@ -145,7 +145,7 @@
 
 <div class="pad-top">
 
-    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-info btn-sm margin-right">
+    <a href="@Url.Action("Edit", new { id = Model.Inventory.Id })" class="btn btn-info btn-sm margin-right">
         <span class="glyphicon glyphicon-edit"></span> Modifier
     </a>
 

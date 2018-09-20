@@ -6,11 +6,11 @@ using System.Web;
 
 namespace Drette.Tender.ViewModels
 {
-    public class InventoryOutputsViewModel : InventoryInputsViewModel
+    public class InventoriesOutputsViewModel : InventoriesBaseViewModel
     {
         public InventoryOutput InventoryOutput { get; set; } = new InventoryOutput();
 
-        public InventoryOutputsViewModel()
+        public InventoriesOutputsViewModel()
         {
             InventoryOutput.Date = DateTime.Now;
         }

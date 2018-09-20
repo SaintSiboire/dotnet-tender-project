@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Drette.Tender.ViewModels
 {
-    public class InventoriesEditViewModel : InventoryInputsViewModel
+    public class InventoriesEditViewModel : InventoriesBaseViewModel
     {
         //public ProductModification ProductModification { get; set; } = new ProductModification();
 

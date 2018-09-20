@@ -29,5 +29,14 @@ namespace Drette.Tender.Shared.Data
         {
             throw new NotImplementedException();
         }
+
+        public Supplier GetById(int id)
+        {
+            var supplier = Context.Suppliers.AsQueryable();
+
+            return supplier
+                .Where(s => s.Id == id)
+                .SingleOrDefault();
+        }
     }
 }

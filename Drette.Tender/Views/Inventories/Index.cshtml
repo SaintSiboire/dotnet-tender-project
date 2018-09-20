@@ -1,4 +1,6 @@
-﻿@model List<Drette.Tender.Shared.Models.Inventory>
+﻿@model Drette.Tender.ViewModels.InventoriesIndexViewModel
+@using Drette.Tender.Shared.Models
+
 @{
     ViewBag.Title = "Inventaires";
 }
@@ -27,30 +29,30 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var inventory in Model)
+        @foreach (var inventory in Model.Inventories)
         {
-        <tr>
-            <td>@inventory.Id</td>
-            <td>@inventory.Counted</td>
-            <td>@inventory.Followed</td>
-            <td>@inventory.UnitQty</td>
-            <td>@inventory.UnitMinQty</td>
-            <td>@inventory.UnitMaxQty</td>
-            <td>@inventory.TotalCost</td>
-            <td>@inventory.AverageCost</td>
-            <td>@inventory.Unit.Name</td>
-            <td>@inventory.Unit.Quantity</td>
-            <td>@inventory.Location</td>
+            <tr>
+                <td>@inventory.Id</td>
+                <td>@inventory.Counted</td>
+                <td>@inventory.Followed</td>
+                <td>@inventory.UnitQty</td>
+                <td>@inventory.UnitMinQty</td>
+                <td>@inventory.UnitMaxQty</td>
+                <td>@inventory.TotalCost</td>
+                <td>@inventory.AverageCost</td>
+                <td>@inventory.Unit.Name</td>
+                <td>@inventory.Unit.Quantity</td>
+                <td>@inventory.Location</td>
 
 
-            <td>
-                <div class="pull-right">
-                    <a href="@Url.Action("Detail", new { id = inventory.Id })" class="btn btn-primary btn-xs margin-right">
-                        <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Detail", new { id = inventory.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

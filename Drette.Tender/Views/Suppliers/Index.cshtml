@@ -1,0 +1,47 @@
+﻿@model Drette.Tender.ViewModels.SuppliersBaseViewModel
+@using Drette.Tender.Shared.Models
+
+@{
+    ViewBag.Title = "Fournisseurs";
+}
+@Html.Partial("_Message")
+
+<div class="pad-top">
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="pull-right">
+    <a href="@Url.Action("Add")" class="btn btn-primary btn-md">
+        <span class="glyphicon glyphicon-plus"></span> Ajouter un fournisseur
+    </a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Site web</th>
+
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model.Suppliers)
+        {
+            <tr>
+                <td>@supplier.Id</td>
+                <td>@supplier.Name</td>
+                <td>@supplier.WebSite</td>
+
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Edit", new { id = supplier.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Edit</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

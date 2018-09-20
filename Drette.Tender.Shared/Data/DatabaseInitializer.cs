@@ -39,16 +39,20 @@ namespace Drette.Tender.Shared.Data
 
             userManager.Create(userPet, "qwerty");
 
-            var supplier1 = new Supplier() { Name = "Shop1", WebSite = "shop1@gmail.com" };
-            var supplier2 = new Supplier() { Name = "Shop2", WebSite = "shop2@gmail.com" };
-
-            var suppliers = new List<Supplier>()
+            var supplier1 = new Supplier()
             {
-                supplier1,
-                supplier2
+                Name = "DealExtreme",
+                WebSite = "www.dx.com"
             };
+            context.Suppliers.Add(supplier1);
 
-            context.Suppliers.AddRange(suppliers);
+            var supplier2 = new Supplier()
+            {
+                Name = "Banggood",
+                WebSite = "www.banggood.com"
+            };
+            context.Suppliers.Add(supplier2);
+
 
             var unit1 = new Unit()
             {

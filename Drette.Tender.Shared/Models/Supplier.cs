@@ -21,7 +21,6 @@ namespace Drette.Tender.Shared.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        [EmailAddress]
         public string WebSite { get; set; }
 
 

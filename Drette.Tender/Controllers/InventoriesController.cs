@@ -44,7 +44,12 @@ namespace Drette.Tender.Controllers
 
             IList<Inventory> inventories = _inventoriesRepository.GetAll();
 
-            return View(inventories);
+            var viewModel = new InventoriesIndexViewModel()
+            {
+                Inventories = inventories
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Detail(int? id)
@@ -63,12 +68,17 @@ namespace Drette.Tender.Controllers
                 return HttpNotFound();
             }
 
-            return View(inventory);
+            var viewModel = new InventoriesBaseViewModel()
+            {
+                Inventory = inventory
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Input()
         {
-            var viewModel = new InventoryInputsViewModel();
+            var viewModel = new InventoriesBaseViewModel();
 
             viewModel.InventoryInput.UserId = User.Identity.GetUserId();
 
@@ -78,7 +88,7 @@ namespace Drette.Tender.Controllers
         }
 
         [HttpPost]
-        public ActionResult Input(InventoryInputsViewModel viewModel)
+        public ActionResult Input(InventoriesBaseViewModel viewModel)
         {
             // ValidateProduct(viewModel.Product);
 
@@ -113,7 +123,7 @@ namespace Drette.Tender.Controllers
 
         public ActionResult Output()
         {
-            var viewModel = new InventoryOutputsViewModel();
+            var viewModel = new InventoriesOutputsViewModel();
 
             viewModel.InventoryOutput.UserId = User.Identity.GetUserId();
 
@@ -123,7 +133,7 @@ namespace Drette.Tender.Controllers
         }
 
         [HttpPost]
-        public ActionResult Output(InventoryOutputsViewModel viewModel)
+        public ActionResult Output(InventoriesOutputsViewModel viewModel)
         {
             // ValidateProduct(viewModel.Product);
 

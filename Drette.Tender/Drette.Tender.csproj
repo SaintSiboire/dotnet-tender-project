@@ -133,13 +133,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="ViewModels\InventoriesEditViewModel.cs" />
-    <Compile Include="ViewModels\InventoryInputsViewModel.cs" />
-    <Compile Include="ViewModels\InventoryOutputsViewModel.cs" />
+    <Compile Include="ViewModels\InventoriesBaseViewModel.cs" />
+    <Compile Include="ViewModels\InventoriesIndexViewModel.cs" />
+    <Compile Include="ViewModels\InventoriesOutputsViewModel.cs" />
     <Compile Include="ViewModels\ProductsAddViewModel.cs" />
     <Compile Include="ViewModels\ProductsBaseViewModel.cs" />
     <Compile Include="ViewModels\ProductsEditViewModel.cs" />
     <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
+    <Compile Include="ViewModels\SuppliersBaseViewModel.cs" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
@@ -208,6 +211,10 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\_ProductEditForm.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Suppliers\Add.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\_SupplierForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

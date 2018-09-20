@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Drette.Tender.ViewModels
 {
-    public class InventoryInputsViewModel
+    public class InventoriesBaseViewModel
     {
         public Product Product { get; set; } = new Product();
 
@@ -25,7 +25,7 @@ namespace Drette.Tender.ViewModels
         public List<Product> Products { get; set; }
 
 
-        public InventoryInputsViewModel()
+        public InventoriesBaseViewModel()
         {
             InventoryInput.Date = DateTime.Now;
         }
