@@ -52,16 +52,14 @@ namespace Drette.Tender.Controllers
                 .Count();
 
 
-            decimal totalValue = inventories
-                .Sum(i => i.TotalCost);
+
 
             
 
             var viewModel = new ProductsIndexViewModel()
             {
                 Products = products,
-                TotalProduct = totalProduct,
-                TotalValue = totalValue
+                TotalProduct = totalProduct
             };
 
             return View(viewModel);

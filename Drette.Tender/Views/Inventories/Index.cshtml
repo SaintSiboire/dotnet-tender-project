@@ -6,6 +6,17 @@
 }
 @Html.Partial("_Message")
 
+<div class="stats">
+    <div class="stats-left">
+        <h2 class="stats-header h3">Nombre de produits en inventaire</h2>
+        <span class="stats-number">@Model.TotalInventories</span> produits
+    </div>
+    <div class="stats-right">
+        <h2 class="stats-header h3">Valeur totale</h2>
+        <span class="stats-number">@Model.TotalValue.ToString("n2")</span> $
+    </div>
+</div>
+
 <div class="pad-top">
     <h2>@ViewBag.Title</h2>
 </div>

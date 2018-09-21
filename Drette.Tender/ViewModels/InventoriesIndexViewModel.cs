@@ -9,5 +9,8 @@ namespace Drette.Tender.ViewModels
     public class InventoriesIndexViewModel
     {
         public IList<Inventory> Inventories { get; set; }
+
+        public int TotalInventories { get; set; }
+        public decimal TotalValue { get; set; }
     }
 }

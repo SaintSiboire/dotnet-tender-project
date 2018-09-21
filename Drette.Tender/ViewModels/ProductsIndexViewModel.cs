@@ -10,6 +10,6 @@ namespace Drette.Tender.ViewModels
     {
         public IList<Product> Products { get; set; }
         public int TotalProduct { get; set; }
-        public decimal TotalValue { get; set; }
+
     }
 }

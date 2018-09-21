@@ -44,9 +44,17 @@ namespace Drette.Tender.Controllers
 
             IList<Inventory> inventories = _inventoriesRepository.GetAll();
 
+            var total = inventories
+                .Sum(i => i.Unit.Quantity * i.UnitQty);
+
+            decimal totalValue = inventories
+                        .Sum(i => i.TotalCost);
+
             var viewModel = new InventoriesIndexViewModel()
             {
-                Inventories = inventories
+                Inventories = inventories,
+                TotalInventories = total,
+                TotalValue = totalValue
             };
 
             return View(viewModel);

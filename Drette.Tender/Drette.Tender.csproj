@@ -143,6 +143,8 @@
     <Compile Include="ViewModels\ProductsEditViewModel.cs" />
     <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
     <Compile Include="ViewModels\SuppliersBaseViewModel.cs" />
+    <None Include="Views\Shared\_testSVG.cshtml" />
+    <Content Include="testLogo.ico" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />

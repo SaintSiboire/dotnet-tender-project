@@ -27,7 +27,7 @@
 
         <a href="@Url.Action("Output", "Inventories")" style="visibility: @GetButtonVisibility("Inventories", "Output")"
            class="btn btn-primary navbar-btn">
-            <span class="glyphicon glyphicon-plus"></span> Sortie d'inventaire
+            <span class="glyphicon glyphicon-minus"></span> Sortie d'inventaire
         </a>
 
         using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { @class = "navbar-right" }))
