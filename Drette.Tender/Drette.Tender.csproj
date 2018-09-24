@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\UnitsController.cs" />
     <Compile Include="ViewModels\InventoriesEditViewModel.cs" />
     <Compile Include="ViewModels\InventoriesBaseViewModel.cs" />
     <Compile Include="ViewModels\InventoriesIndexViewModel.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="ViewModels\ProductsEditViewModel.cs" />
     <Compile Include="ViewModels\ProductsIndexViewModel.cs" />
     <Compile Include="ViewModels\SuppliersBaseViewModel.cs" />
+    <Compile Include="ViewModels\UnitsBaseViewModel.cs" />
     <None Include="Views\Shared\_testSVG.cshtml" />
     <Content Include="testLogo.ico" />
     <Content Include="Content\bootstrap-datepicker3.min.css" />
@@ -217,6 +219,10 @@
     <Content Include="Views\Suppliers\Add.cshtml" />
     <Content Include="Views\Suppliers\Edit.cshtml" />
     <Content Include="Views\Suppliers\_SupplierForm.cshtml" />
+    <Content Include="Views\Units\Edit.cshtml" />
+    <Content Include="Views\Units\_Form.cshtml" />
+    <Content Include="Views\Units\Add.cshtml" />
+    <Content Include="Views\Units\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

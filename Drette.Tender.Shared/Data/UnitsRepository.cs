@@ -25,6 +25,15 @@ namespace Drette.Tender.Shared.Data
                 .ToList();
         }
 
+        public Unit GetUnit(int id)
+        {
+            var units = Context.Units.AsQueryable();
+
+            return units
+                .Where(u => u.Id == id)
+                .SingleOrDefault();
+        }
+
         public override IList<Unit> GetList(string userId)
         {
             throw new NotImplementedException();

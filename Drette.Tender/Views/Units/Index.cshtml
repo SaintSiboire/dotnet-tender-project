@@ -1,0 +1,51 @@
+﻿@model Drette.Tender.ViewModels.UnitsBaseViewModel
+@using Drette.Tender.Shared.Models
+
+@{
+    /**/
+
+    ViewBag.Title = "Unités";
+}
+@Html.Partial("_Message")
+
+
+<div class="pad-top">
+    <h2>@ViewBag.Title</h2>
+</div>
+<div class="pull-right">
+    <a href="@Url.Action("Add")" class="btn btn-primary btn-xs margin-right">
+        <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Ajouter</span>
+    </a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Quantité</th>
+
+
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var unit in Model.Units)
+        {
+            <tr>
+                <td>@unit.Id</td>
+                <td>@unit.Name</td>
+                <td>@unit.Quantity</td>
+
+
+                <td>
+                    <div class="pull-right">
+                        <a href="@Url.Action("Edit", new { id = unit.Id })" class="btn btn-primary btn-xs margin-right">
+                            <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Detail</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

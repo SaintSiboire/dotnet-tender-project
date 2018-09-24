@@ -2,9 +2,13 @@
 @using Drette.Tender.Shared.Models
 
 @{
-    ViewBag.Title = "Inventaires";
+                /**/
+
+                ViewBag.Title = "Inventaires";
 }
 @Html.Partial("_Message")
+
+
 
 <div class="stats">
     <div class="stats-left">
@@ -15,6 +19,13 @@
         <h2 class="stats-header h3">Valeur totale</h2>
         <span class="stats-number">@Model.TotalValue.ToString("n2")</span> $
     </div>
+</div>
+
+
+<div class="pull-right">
+    <a href="@Url.Action("Index","Units")" class="btn btn-primary btn-xs margin-right">
+        <span class="glyphicon glyphicon-info-sign"></span><span class="hidden-xs"> Détails des unitées</span>
+    </a>
 </div>
 
 <div class="pad-top">
